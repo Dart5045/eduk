@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.eduk</groupId>
+  <artifactId>eduk</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>finanzas</module>
+  </modules>
+  <name>eduk</name>
+  <url>http://www.eduk.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.version>1.0-SNAPSHOT</project.version>
+
+    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+  </properties>
+  <developers>
+    <developer>
+      <id>Dart5045</id>
+      <name>Bladimir Gonzales Miranda</name>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://github.com/Dart5045/eduk</url>
+    <connection>scm:git:git://github.com/Dart5045/eduk.git</connection>
+  </scm>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>finanzas-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>finanzas-dominio-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>finanzas-dominio-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>finanzas-mensajeria</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>finanzas-accesoadatos</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
