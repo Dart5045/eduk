@@ -9,7 +9,8 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>finanzas</module>
+    <module>finance</module>
+      <module>common</module>
   </modules>
   <name>eduk</name>
   <url>http://www.eduk.com</url>
@@ -34,28 +35,38 @@
     <dependencies>
       <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-api</artifactId>
+        <artifactId>finance-application</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-dominio-core</artifactId>
+        <artifactId>finance-core-domain</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-dominio-api</artifactId>
+        <artifactId>finance-application-service</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-mensajeria</artifactId>
+        <artifactId>finance-messagin</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-accesoadatos</artifactId>
+        <artifactId>finance-dataaccess</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>common-domain</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
+        <version>3.1.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

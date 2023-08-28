@@ -3,16 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>finanzas</artifactId>
+        <artifactId>finance-domain</artifactId>
         <groupId>com.eduk</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>finanzas-api</artifactId>
+    <artifactId>finance-application-service</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.eduk</groupId>
-            <artifactId>finanzas-dominio-api</artifactId>
+            <artifactId>finance-core-domain</artifactId>
         </dependency>
     </dependencies>
 </project>

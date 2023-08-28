@@ -3,12 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>finanzas-dominio</artifactId>
+        <artifactId>common</artifactId>
         <groupId>com.eduk</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>finanzas-dominio-core</artifactId>
-
+    <modelVersion>4.0.0</modelVersion>x
+    <artifactId>common-domain</artifactId>
 </project>

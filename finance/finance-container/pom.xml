@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>finanzas</artifactId>
+        <artifactId>finance</artifactId>
         <groupId>com.eduk</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -12,23 +12,23 @@
 <dependencies>
     <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-dominio-core</artifactId>
+        <artifactId>finance-core-domain</artifactId>
     </dependency>
     <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-api</artifactId>
+        <artifactId>finance-application</artifactId>
     </dependency>
     <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-dominio-api</artifactId>
+        <artifactId>finance-application-service</artifactId>
     </dependency>
     <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-accesoadatos</artifactId>
+        <artifactId>finance-dataaccess</artifactId>
     </dependency>
     <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finanzas-mensajeria</artifactId>
+        <artifactId>finance-messagin</artifactId>
     </dependency>
 </dependencies>
 </project>
