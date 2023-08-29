@@ -1,1 +1,1 @@
-# eduk
+# EduK

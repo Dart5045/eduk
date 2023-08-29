@@ -11,6 +11,9 @@
   <modules>
     <module>finance</module>
       <module>common</module>
+    <module>admission</module>
+    <module>payment</module>
+    <module>payment/payment-domain/payment-core-domain</module>
   </modules>
   <name>eduk</name>
   <url>http://www.eduk.com</url>
