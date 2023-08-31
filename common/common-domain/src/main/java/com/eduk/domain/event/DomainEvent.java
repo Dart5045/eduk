@@ -1,4 +1,4 @@
-package com.eduk.domain.events;
+package com.eduk.domain.event;
 
 public interface DomainEvent<T> {
 }

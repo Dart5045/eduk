@@ -10,7 +10,7 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>finance</module>
-      <module>common</module>
+    <module>common</module>
     <module>admission</module>
     <module>payment</module>
     <module>payment/payment-domain/payment-core-domain</module>
@@ -21,8 +21,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.version>1.0-SNAPSHOT</project.version>
-
     <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+    <spring.boot.dependencies.version>3.1.1</spring.boot.dependencies.version>
   </properties>
   <developers>
     <developer>
@@ -37,10 +37,25 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.dependencies.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+      <dependency>
         <groupId>com.eduk</groupId>
         <artifactId>finance-application</artifactId>
         <version>${project.version}</version>
       </dependency>
+
+
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>admission-domain-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>com.eduk</groupId>
         <artifactId>finance-core-domain</artifactId>
@@ -73,6 +88,18 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+      <version>1.18.26</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-logging</artifactId>
+    </dependency>
+  </dependencies>
   <build>
     <plugins>
       <plugin>

@@ -1,11 +1,12 @@
 package com.eduk.application.domain.entity;
 
+import com.eduk.application.domain.exception.ApplicationDomainException;
 import com.eduk.application.domain.valueobject.ApplicationStatus;
 import com.eduk.domain.entity.BaseEntity;
 import com.eduk.domain.valueobject.ApplicationId;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.List;
 
 public class Application extends BaseEntity<ApplicationId> {
     private ApplicationStatus applicationStatus;
@@ -14,10 +15,7 @@ public class Application extends BaseEntity<ApplicationId> {
     private boolean confirmed;
     private LocalDateTime dateConfirmed;
     private final Student student;
-
-    public void initFeePayment(){
-
-    }
+    private final Confirmation confirmation;
 
     private Application(Builder builder) {
         super.setId(builder.applicationId);
@@ -27,12 +25,12 @@ public class Application extends BaseEntity<ApplicationId> {
         confirmed = builder.confirmed;
         dateConfirmed = builder.dateConfirmed;
         student = builder.student;
+        confirmation = builder.confirmation;
     }
 
     public static Builder builder() {
         return new Builder();
     }
-
 
     public ApplicationStatus getApplicationStatus() {
         return applicationStatus;
@@ -58,6 +56,11 @@ public class Application extends BaseEntity<ApplicationId> {
         return student;
     }
 
+    public Confirmation getConfirmation() {
+        return confirmation;
+    }
+
+
     public static final class Builder {
         private ApplicationStatus applicationStatus;
         private String firstResponsible;
@@ -65,6 +68,7 @@ public class Application extends BaseEntity<ApplicationId> {
         private boolean confirmed;
         private LocalDateTime dateConfirmed;
         private Student student;
+        private Confirmation confirmation;
         private ApplicationId applicationId;
 
         private Builder() {
@@ -97,6 +101,11 @@ public class Application extends BaseEntity<ApplicationId> {
 
         public Builder student(Student val) {
             student = val;
+            return this;
+        }
+
+        public Builder confirmation(Confirmation val) {
+            confirmation = val;
             return this;
         }
 
