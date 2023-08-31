@@ -1,21 +1,22 @@
 package com.eduk.application.domain.event;
 
 import com.eduk.application.domain.entity.Application;
+import com.eduk.application.domain.entity.Confirmation;
 import com.eduk.domain.event.DomainEvent;
 
 import java.time.ZonedDateTime;
 
-public abstract class ConfirmationEvent implements DomainEvent<Application> {
-    private final Application application;
+public abstract class ConfirmationEvent implements DomainEvent<Confirmation> {
+    private final Confirmation confirmation;
     private final ZonedDateTime createdAt;
 
-    public ConfirmationEvent(Application application, ZonedDateTime createdAt) {
-        this.application = application;
+    public ConfirmationEvent(Confirmation confirmation, ZonedDateTime createdAt) {
+        this.confirmation = confirmation;
         this.createdAt = createdAt;
     }
 
-    public Application getApplication() {
-        return application;
+    public Confirmation getConfirmation() {
+        return confirmation;
     }
 
     public ZonedDateTime getCreatedAt() {

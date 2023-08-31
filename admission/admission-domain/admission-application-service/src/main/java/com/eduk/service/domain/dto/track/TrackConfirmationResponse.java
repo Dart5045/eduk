@@ -1,5 +1,6 @@
 package com.eduk.service.domain.dto.track;
 
+import com.eduk.application.domain.valueobject.ConfirmationStatus;
 import com.eduk.domain.valueobject.PaymentStatus;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -14,8 +15,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class TrackConfirmationResponse {
     @NotNull
-    private final UUID applicationFeeTrackingId;
+    private final UUID confirmationTrackingId;
     @NotNull
-    private final PaymentStatus paymentStatus;
+    private final ConfirmationStatus confirmationStatus;
     private final List<String> failureMessages;
 }

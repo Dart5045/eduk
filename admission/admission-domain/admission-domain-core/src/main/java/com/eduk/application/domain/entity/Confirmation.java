@@ -2,6 +2,7 @@ package com.eduk.application.domain.entity;
 
 import com.eduk.application.domain.exception.ApplicationDomainException;
 import com.eduk.application.domain.valueobject.ConfirmationStatus;
+import com.eduk.application.domain.valueobject.TrackingId;
 import com.eduk.domain.entity.BaseEntity;
 import com.eduk.domain.valueobject.ApplicationId;
 import com.eduk.domain.valueobject.ConfirmationId;
@@ -17,14 +18,24 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
     private ConfirmationStatus confirmationStatus;
 
     private LocalDateTime dateConfirmed;
+    private TrackingId trackingId;
     private Money amount;
+    private List<String> failureMessages;
 
     private Confirmation(Builder builder) {
         super.setId(builder.confirmationId);
         applicationId = builder.applicationId;
         confirmationStatus = builder.confirmationStatus;
-        amount = builder.amount;
+        dateConfirmed = builder.dateConfirmed;
+        trackingId = builder.trackingId;
+        setAmount(builder.amount);
+        failureMessages = builder.failureMessages;
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
 
     public void payConfirmation(){
         if(confirmationStatus!= ConfirmationStatus.PAID){
@@ -72,9 +83,6 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
         this.amount = amount;
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
 
     public void initializeConfirmation(){
         this.setId(new ConfirmationId(UUID.randomUUID()));
@@ -90,15 +98,30 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
         return confirmationStatus;
     }
 
+    public LocalDateTime getDateConfirmed() {
+        return dateConfirmed;
+    }
+
+    public TrackingId getTrackingId() {
+        return trackingId;
+    }
+
     public Money getAmount() {
         return amount;
+    }
+
+    public List<String> getFailureMessages() {
+        return failureMessages;
     }
 
 
     public static final class Builder {
         private ApplicationId applicationId;
         private ConfirmationStatus confirmationStatus;
+        private LocalDateTime dateConfirmed;
+        private TrackingId trackingId;
         private Money amount;
+        private List<String> failureMessages;
         private ConfirmationId confirmationId;
 
         private Builder() {
@@ -114,8 +137,23 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
             return this;
         }
 
+        public Builder dateConfirmed(LocalDateTime val) {
+            dateConfirmed = val;
+            return this;
+        }
+
+        public Builder trackingId(TrackingId val) {
+            trackingId = val;
+            return this;
+        }
+
         public Builder amount(Money val) {
             amount = val;
+            return this;
+        }
+
+        public Builder failureMessages(List<String> val) {
+            failureMessages = val;
             return this;
         }
 

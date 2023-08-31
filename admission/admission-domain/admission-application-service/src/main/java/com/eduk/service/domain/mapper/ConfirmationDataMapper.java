@@ -6,6 +6,7 @@ import com.eduk.domain.valueobject.ApplicationId;
 import com.eduk.domain.valueobject.Money;
 import com.eduk.service.domain.dto.create.CreateConfirmationCommand;
 import com.eduk.service.domain.dto.create.CreateConfirmationResponse;
+import com.eduk.service.domain.dto.track.TrackConfirmationResponse;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,10 +19,21 @@ public class ConfirmationDataMapper {
                 .build();
     }
     public CreateConfirmationResponse confirmationToCreateConfirmationResponse(
-            Confirmation confirmation){
+            Confirmation confirmation, String message){
         return CreateConfirmationResponse
                 .builder()
+                .confirmationTrackingId(confirmation.getTrackingId().getValue())
                 .confirmationStatus(confirmation.getConfirmationStatus())
+                .message(message)
+                .build();
+    }
+
+    public TrackConfirmationResponse confirmationToTrackConfirmationResponse(Confirmation confirmation){
+        return TrackConfirmationResponse
+                .builder()
+                .confirmationTrackingId(confirmation.getTrackingId().getValue())
+                .confirmationStatus(confirmation.getConfirmationStatus())
+                .failureMessages(confirmation.getFailureMessages())
                 .build();
     }
 }

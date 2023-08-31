@@ -1,7 +1,6 @@
 package com.eduk.service.domain.dto.create;
 
 import com.eduk.application.domain.valueobject.ConfirmationStatus;
-import com.eduk.domain.valueobject.PaymentStatus;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +17,5 @@ public class CreateConfirmationResponse {
     @NotNull
     private final ConfirmationStatus confirmationStatus;
     @NotNull
-    private final String messages;
+    private final String message;
 }

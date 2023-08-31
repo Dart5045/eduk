@@ -13,5 +13,5 @@ import java.util.UUID;
 @AllArgsConstructor
 public class TrackConfirmationQuery {
     @NotNull
-    private final UUID applicationFeeTrackingId;
+    private final UUID confirmationTrackingId;
 }
