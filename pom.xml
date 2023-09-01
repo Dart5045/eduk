@@ -13,7 +13,7 @@
     <module>common</module>
     <module>admission</module>
     <module>payment</module>
-    <module>payment/payment-domain/payment-core-domain</module>
+    <module>infrastructure</module>
   </modules>
   <name>eduk</name>
   <url>http://www.eduk.com</url>
@@ -24,6 +24,8 @@
     <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
     <spring.boot.dependencies.version>3.1.1</spring.boot.dependencies.version>
     <mockito.version>4.8.1</mockito.version>
+    <spring-kafka-version>3.0.9</spring-kafka-version>
+    <avro.version>1.11.2</avro.version>
   </properties>
   <developers>
     <developer>
@@ -92,6 +94,26 @@
         <artifactId>mockito-core</artifactId>
         <version>${mockito.version}</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>kafka-model</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>kafka-producer</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>kafka-consumer</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>kafka-config-data</artifactId>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
