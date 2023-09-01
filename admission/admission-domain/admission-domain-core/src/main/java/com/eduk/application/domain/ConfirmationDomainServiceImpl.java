@@ -4,7 +4,7 @@ import com.eduk.application.domain.entity.Confirmation;
 import com.eduk.application.domain.event.ConfirmationCancelledEvent;
 import com.eduk.application.domain.event.ConfirmationCreatedEvent;
 import com.eduk.application.domain.event.ConfirmationPaidEvent;
-import com.eduk.application.domain.exception.ApplicationDomainException;
+import com.eduk.application.domain.exception.ConfirmationDomainException;
 import com.eduk.application.domain.valueobject.ApplicationStatus;
 import com.eduk.domain.valueobject.Money;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +32,7 @@ public class ConfirmationDomainServiceImpl implements ConfirmationDomainService 
 
     private void validateApplication(Confirmation confirmation) {
         if(confirmation.getStatus()== ApplicationStatus.CANCELLED){
-            throw new ApplicationDomainException("Application with id:"+confirmation.getId()+ " is not current active");
+            throw new ConfirmationDomainException("Application with id:"+confirmation.getId()+ " is not current active");
         }
     }
 

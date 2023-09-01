@@ -1,17 +1,15 @@
 package com.eduk.application.domain.entity;
 
-import com.eduk.application.domain.exception.ApplicationDomainException;
 import com.eduk.application.domain.valueobject.ApplicationStatus;
 import com.eduk.domain.entity.BaseEntity;
 import com.eduk.domain.valueobject.ApplicationId;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Application extends BaseEntity<ApplicationId> {
     private ApplicationStatus applicationStatus;
     private String firstResponsible;
-    private Terms termRequested;
+    private Term termRequested;
     private boolean confirmed;
     private LocalDateTime dateConfirmed;
     private final Student student;
@@ -40,7 +38,7 @@ public class Application extends BaseEntity<ApplicationId> {
         return firstResponsible;
     }
 
-    public Terms getTermRequested() {
+    public Term getTermRequested() {
         return termRequested;
     }
 
@@ -64,7 +62,7 @@ public class Application extends BaseEntity<ApplicationId> {
     public static final class Builder {
         private ApplicationStatus applicationStatus;
         private String firstResponsible;
-        private Terms termRequested;
+        private Term termRequested;
         private boolean confirmed;
         private LocalDateTime dateConfirmed;
         private Student student;
@@ -84,7 +82,7 @@ public class Application extends BaseEntity<ApplicationId> {
             return this;
         }
 
-        public Builder termRequested(Terms val) {
+        public Builder termRequested(Term val) {
             termRequested = val;
             return this;
         }

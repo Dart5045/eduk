@@ -4,7 +4,7 @@ import com.eduk.application.domain.ConfirmationDomainService;
 import com.eduk.application.domain.entity.Application;
 import com.eduk.application.domain.entity.Confirmation;
 import com.eduk.application.domain.event.ConfirmationCreatedEvent;
-import com.eduk.application.domain.exception.ApplicationDomainException;
+import com.eduk.application.domain.exception.ConfirmationDomainException;
 import com.eduk.service.domain.dto.create.CreateConfirmationCommand;
 import com.eduk.service.domain.mapper.ConfirmationDataMapper;
 import com.eduk.service.domain.ports.output.repository.ApplicationRepository;
@@ -50,7 +50,7 @@ public class ConfirmationCreateHelper {
         Optional<Application> application = applicationRepository.findByApplicationId(applicationID);
         if(application.isEmpty()){
             log.warn("Could not find application with application id:{}",applicationID);
-            throw new ApplicationDomainException("Could not find application with application id: "+applicationID);
+            throw new ConfirmationDomainException("Could not find application with application id: "+applicationID);
         }
     }
 
@@ -59,7 +59,7 @@ public class ConfirmationCreateHelper {
         if(confirmationResult == null){
             log.error("Could not save order");
 
-            throw new ApplicationDomainException("Could not save order!");
+            throw new ConfirmationDomainException("Could not save order!");
         }
         log.info("Order saved is:{}",confirmationResult.getId());
         return confirmationResult;

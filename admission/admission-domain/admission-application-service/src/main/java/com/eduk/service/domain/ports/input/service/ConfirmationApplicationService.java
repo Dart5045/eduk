@@ -6,7 +6,7 @@ import com.eduk.service.domain.dto.track.TrackConfirmationQuery;
 import com.eduk.service.domain.dto.track.TrackConfirmationResponse;
 import jakarta.validation.Valid;
 
-public interface ConfirmationService {
-    CreateConfirmationResponse createApplicationFee(@Valid CreateConfirmationCommand createConfirmationCommand);
-    TrackConfirmationResponse trackApplicationFee(@Valid TrackConfirmationQuery trackConfirmationQuery);
+public interface ConfirmationApplicationService {
+    CreateConfirmationResponse createConfirmation(@Valid CreateConfirmationCommand createConfirmationCommand);
+    TrackConfirmationResponse trackConfirmation(@Valid TrackConfirmationQuery trackConfirmationQuery);
 }

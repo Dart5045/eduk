@@ -1,6 +1,6 @@
 package com.eduk.application.domain.entity;
 
-import com.eduk.application.domain.exception.ApplicationDomainException;
+import com.eduk.application.domain.exception.ConfirmationDomainException;
 import com.eduk.application.domain.valueobject.ConfirmationStatus;
 import com.eduk.application.domain.valueobject.TrackingId;
 import com.eduk.domain.entity.BaseEntity;
@@ -39,7 +39,7 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
 
     public void payConfirmation(){
         if(confirmationStatus!= ConfirmationStatus.PAID){
-            throw new ApplicationDomainException("Application is not in the correct state for pay operation!");
+            throw new ConfirmationDomainException("Application is not in the correct state for pay operation!");
         }
         dateConfirmed = LocalDateTime.now();
     }
@@ -47,7 +47,7 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
 
     public void initCancellingFeePayment(List<String> failureMessages){
         if(confirmationStatus!= ConfirmationStatus.PAID){
-            throw new ApplicationDomainException("Application is not in the correct state for initCancel operation!");
+            throw new ConfirmationDomainException("Application is not in the correct state for initCancel operation!");
         }
         confirmationStatus = ConfirmationStatus.CANCELLING;
         updateFailureMessages(failureMessages);
@@ -55,13 +55,13 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
 
     private void updateFailureMessages(List<String> failureMessages) {
         if(confirmationStatus!= ConfirmationStatus.PAID){
-            throw new ApplicationDomainException("Application is not in the correct state for initCancel operation!");
+            throw new ConfirmationDomainException("Application is not in the correct state for initCancel operation!");
         }
     }
 
     public void cancelFeePayment( List<String> failureMessages){
         if(!(confirmationStatus == ConfirmationStatus.CANCELLING || confirmationStatus == ConfirmationStatus.PENDING)){
-            throw new ApplicationDomainException("Application is not in the correct state for cancel operation!");
+            throw new ConfirmationDomainException("Application is not in the correct state for cancel operation!");
         }
         confirmationStatus = ConfirmationStatus.CANCELLED;
         updateFailureMessages(failureMessages);
@@ -74,7 +74,7 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
 
     private void validateInitFeePayment(){
         if(confirmationStatus == null || confirmationStatus.equals(ConfirmationStatus.PAID)){
-            throw new ApplicationDomainException("Application is not in the correct state for initialization");
+            throw new ConfirmationDomainException("Application is not in the correct state for initialization");
         }
     }
 

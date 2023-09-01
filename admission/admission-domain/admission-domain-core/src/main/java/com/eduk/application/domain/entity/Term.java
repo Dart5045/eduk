@@ -4,13 +4,13 @@ import com.eduk.application.domain.valueobject.TermId;
 import com.eduk.domain.entity.AggregateRoot;
 import java.util.List;
 
-public class Terms extends AggregateRoot<TermId> {
+public class Term extends AggregateRoot<TermId> {
     private String period;
     private int year;
     private final List<Application> applications;
     private boolean active;
 
-    private Terms(Builder builder) {
+    private Term(Builder builder) {
         super.setId(builder.termId);
         period = builder.period;
         year = builder.year;
@@ -74,8 +74,8 @@ public class Terms extends AggregateRoot<TermId> {
             return this;
         }
 
-        public Terms build() {
-            return new Terms(this);
+        public Term build() {
+            return new Term(this);
         }
     }
 }

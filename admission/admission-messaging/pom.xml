@@ -10,8 +10,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>admission-messaging</artifactId>
-
     <properties>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>admission-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>kafka-producer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>kafka-consumer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>kafka-model</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -7,7 +7,6 @@ import com.eduk.service.domain.mapper.ConfirmationDataMapper;
 import com.eduk.service.domain.ports.output.message.publisher.payment.ConfirmationCreatedPaymentRequestMessagePublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @Slf4j
@@ -26,7 +25,7 @@ public class ConfirmationCreateCommandHandler {
     }
 
 
-    public CreateConfirmationResponse createApplicationFeeResponse(
+    public CreateConfirmationResponse createConfirmationResponse(
             CreateConfirmationCommand createConfirmationCommand){
         ConfirmationCreatedEvent confirmationCreatedEvent = confirmationCreateHelper.persistConfirmation(createConfirmationCommand);
         log.info("Confirmation is created with id:{}",confirmationCreatedEvent.getConfirmation().getId());
