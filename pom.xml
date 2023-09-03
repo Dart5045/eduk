@@ -9,11 +9,12 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>finance</module>
+    <module>finance-service</module>
     <module>common</module>
-    <module>admission</module>
-    <module>payment</module>
+    <module>admission-service</module>
+    <module>payment-service</module>
     <module>infrastructure</module>
+    <module>student-service</module>
   </modules>
   <name>eduk</name>
   <url>http://www.eduk.com</url>
