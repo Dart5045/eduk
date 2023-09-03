@@ -3,11 +3,11 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.mylearning.kafka.order.avro.model;
+package com.eduk.kafka.confirmation.avro.model;
 @org.apache.avro.specific.AvroGenerated
 public enum PaymentOrderStatus implements org.apache.avro.generic.GenericEnumSymbol<PaymentOrderStatus> {
   PENDING, CANCELLED  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"PaymentOrderStatus\",\"namespace\":\"com.mylearning.kafka.order.avro.model\",\"symbols\":[\"PENDING\",\"CANCELLED\"]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"PaymentOrderStatus\",\"namespace\":\"com.eduk.kafka.confirmation.avro.model\",\"symbols\":[\"PENDING\",\"CANCELLED\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   @Override

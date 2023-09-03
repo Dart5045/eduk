@@ -1,5 +1,5 @@
 {
-    "namespace": "com.mylearning.kafka.order.avro.model",
+    "namespace": "com.eduk.kafka.confirmation.avro.model",
     "type": "record",
     "name": "PaymentResponseAvroModel",
     "fields": [
@@ -25,14 +25,14 @@
             }
         },
         {
-            "name": "customerId",
+            "name": "confirmationId",
             "type": {
                 "type": "string",
                 "logicalType": "uuid"
             }
         },
         {
-            "name": "orderId",
+            "name": "applicationId",
             "type": {
                 "type": "string",
                 "logicalType": "uuid"

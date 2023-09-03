@@ -13,7 +13,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApplicationEntity {
-
     @Id
     private UUID id;
     private String firstResponsible;

@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.mylearning.kafka.order.avro.model;
+package com.eduk.kafka.confirmation.avro.model;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1939285402496890152L;
+  private static final long serialVersionUID = -9105699757231963306L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PaymentResponseAvroModel\",\"namespace\":\"com.mylearning.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"paymentId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"customerId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"orderId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"price\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"paymentStatus\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentStatus\",\"symbols\":[\"COMPLETED\",\"CANCELLED\",\"FAILED\"]}},{\"name\":\"failureMessages\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PaymentResponseAvroModel\",\"namespace\":\"com.eduk.kafka.confirmation.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"paymentId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"confirmationId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"applicationId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"price\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"paymentStatus\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentStatus\",\"symbols\":[\"COMPLETED\",\"CANCELLED\",\"FAILED\"]}},{\"name\":\"failureMessages\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -81,11 +81,11 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
   private java.util.UUID id;
   private java.util.UUID sagaId;
   private java.util.UUID paymentId;
-  private java.util.UUID customerId;
-  private java.util.UUID orderId;
+  private java.util.UUID confirmationId;
+  private java.util.UUID applicationId;
   private java.math.BigDecimal price;
   private java.time.Instant createdAt;
-  private com.mylearning.kafka.order.avro.model.PaymentStatus paymentStatus;
+  private com.eduk.kafka.confirmation.avro.model.PaymentStatus paymentStatus;
   private java.util.List<java.lang.String> failureMessages;
 
   /**
@@ -100,19 +100,19 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
    * @param id The new value for id
    * @param sagaId The new value for sagaId
    * @param paymentId The new value for paymentId
-   * @param customerId The new value for customerId
-   * @param orderId The new value for orderId
+   * @param confirmationId The new value for confirmationId
+   * @param applicationId The new value for applicationId
    * @param price The new value for price
    * @param createdAt The new value for createdAt
    * @param paymentStatus The new value for paymentStatus
    * @param failureMessages The new value for failureMessages
    */
-  public PaymentResponseAvroModel(java.util.UUID id, java.util.UUID sagaId, java.util.UUID paymentId, java.util.UUID customerId, java.util.UUID orderId, java.math.BigDecimal price, java.time.Instant createdAt, com.mylearning.kafka.order.avro.model.PaymentStatus paymentStatus, java.util.List<java.lang.String> failureMessages) {
+  public PaymentResponseAvroModel(java.util.UUID id, java.util.UUID sagaId, java.util.UUID paymentId, java.util.UUID confirmationId, java.util.UUID applicationId, java.math.BigDecimal price, java.time.Instant createdAt, com.eduk.kafka.confirmation.avro.model.PaymentStatus paymentStatus, java.util.List<java.lang.String> failureMessages) {
     this.id = id;
     this.sagaId = sagaId;
     this.paymentId = paymentId;
-    this.customerId = customerId;
-    this.orderId = orderId;
+    this.confirmationId = confirmationId;
+    this.applicationId = applicationId;
     this.price = price;
     this.createdAt = createdAt.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
     this.paymentStatus = paymentStatus;
@@ -132,8 +132,8 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
     case 0: return id;
     case 1: return sagaId;
     case 2: return paymentId;
-    case 3: return customerId;
-    case 4: return orderId;
+    case 3: return confirmationId;
+    case 4: return applicationId;
     case 5: return price;
     case 6: return createdAt;
     case 7: return paymentStatus;
@@ -169,11 +169,11 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
     case 0: id = (java.util.UUID)value$; break;
     case 1: sagaId = (java.util.UUID)value$; break;
     case 2: paymentId = (java.util.UUID)value$; break;
-    case 3: customerId = (java.util.UUID)value$; break;
-    case 4: orderId = (java.util.UUID)value$; break;
+    case 3: confirmationId = (java.util.UUID)value$; break;
+    case 4: applicationId = (java.util.UUID)value$; break;
     case 5: price = (java.math.BigDecimal)value$; break;
     case 6: createdAt = (java.time.Instant)value$; break;
-    case 7: paymentStatus = (com.mylearning.kafka.order.avro.model.PaymentStatus)value$; break;
+    case 7: paymentStatus = (com.eduk.kafka.confirmation.avro.model.PaymentStatus)value$; break;
     case 8: failureMessages = (java.util.List<java.lang.String>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -231,37 +231,37 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
   }
 
   /**
-   * Gets the value of the 'customerId' field.
-   * @return The value of the 'customerId' field.
+   * Gets the value of the 'confirmationId' field.
+   * @return The value of the 'confirmationId' field.
    */
-  public java.util.UUID getCustomerId() {
-    return customerId;
+  public java.util.UUID getConfirmationId() {
+    return confirmationId;
   }
 
 
   /**
-   * Sets the value of the 'customerId' field.
+   * Sets the value of the 'confirmationId' field.
    * @param value the value to set.
    */
-  public void setCustomerId(java.util.UUID value) {
-    this.customerId = value;
+  public void setConfirmationId(java.util.UUID value) {
+    this.confirmationId = value;
   }
 
   /**
-   * Gets the value of the 'orderId' field.
-   * @return The value of the 'orderId' field.
+   * Gets the value of the 'applicationId' field.
+   * @return The value of the 'applicationId' field.
    */
-  public java.util.UUID getOrderId() {
-    return orderId;
+  public java.util.UUID getApplicationId() {
+    return applicationId;
   }
 
 
   /**
-   * Sets the value of the 'orderId' field.
+   * Sets the value of the 'applicationId' field.
    * @param value the value to set.
    */
-  public void setOrderId(java.util.UUID value) {
-    this.orderId = value;
+  public void setApplicationId(java.util.UUID value) {
+    this.applicationId = value;
   }
 
   /**
@@ -302,7 +302,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
    * Gets the value of the 'paymentStatus' field.
    * @return The value of the 'paymentStatus' field.
    */
-  public com.mylearning.kafka.order.avro.model.PaymentStatus getPaymentStatus() {
+  public com.eduk.kafka.confirmation.avro.model.PaymentStatus getPaymentStatus() {
     return paymentStatus;
   }
 
@@ -311,7 +311,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
    * Sets the value of the 'paymentStatus' field.
    * @param value the value to set.
    */
-  public void setPaymentStatus(com.mylearning.kafka.order.avro.model.PaymentStatus value) {
+  public void setPaymentStatus(com.eduk.kafka.confirmation.avro.model.PaymentStatus value) {
     this.paymentStatus = value;
   }
 
@@ -336,8 +336,8 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
    * Creates a new PaymentResponseAvroModel RecordBuilder.
    * @return A new PaymentResponseAvroModel RecordBuilder
    */
-  public static com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder newBuilder() {
-    return new com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder();
+  public static com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder newBuilder() {
+    return new com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder();
   }
 
   /**
@@ -345,11 +345,11 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
    * @param other The existing builder to copy.
    * @return A new PaymentResponseAvroModel RecordBuilder
    */
-  public static com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder newBuilder(com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder other) {
+  public static com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder newBuilder(com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder other) {
     if (other == null) {
-      return new com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder();
+      return new com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder();
     } else {
-      return new com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder(other);
+      return new com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder(other);
     }
   }
 
@@ -358,11 +358,11 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
    * @param other The existing instance to copy.
    * @return A new PaymentResponseAvroModel RecordBuilder
    */
-  public static com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder newBuilder(com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel other) {
+  public static com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder newBuilder(com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel other) {
     if (other == null) {
-      return new com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder();
+      return new com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder();
     } else {
-      return new com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder(other);
+      return new com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder(other);
     }
   }
 
@@ -376,11 +376,11 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
     private java.util.UUID id;
     private java.util.UUID sagaId;
     private java.util.UUID paymentId;
-    private java.util.UUID customerId;
-    private java.util.UUID orderId;
+    private java.util.UUID confirmationId;
+    private java.util.UUID applicationId;
     private java.math.BigDecimal price;
     private java.time.Instant createdAt;
-    private com.mylearning.kafka.order.avro.model.PaymentStatus paymentStatus;
+    private com.eduk.kafka.confirmation.avro.model.PaymentStatus paymentStatus;
     private java.util.List<java.lang.String> failureMessages;
 
     /** Creates a new Builder */
@@ -392,7 +392,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder other) {
+    private Builder(com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -406,12 +406,12 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
         this.paymentId = data().deepCopy(fields()[2].schema(), other.paymentId);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.customerId)) {
-        this.customerId = data().deepCopy(fields()[3].schema(), other.customerId);
+      if (isValidValue(fields()[3], other.confirmationId)) {
+        this.confirmationId = data().deepCopy(fields()[3].schema(), other.confirmationId);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.orderId)) {
-        this.orderId = data().deepCopy(fields()[4].schema(), other.orderId);
+      if (isValidValue(fields()[4], other.applicationId)) {
+        this.applicationId = data().deepCopy(fields()[4].schema(), other.applicationId);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
       if (isValidValue(fields()[5], other.price)) {
@@ -436,7 +436,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
      * Creates a Builder by copying an existing PaymentResponseAvroModel instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel other) {
+    private Builder(com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -450,12 +450,12 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
         this.paymentId = data().deepCopy(fields()[2].schema(), other.paymentId);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.customerId)) {
-        this.customerId = data().deepCopy(fields()[3].schema(), other.customerId);
+      if (isValidValue(fields()[3], other.confirmationId)) {
+        this.confirmationId = data().deepCopy(fields()[3].schema(), other.confirmationId);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.orderId)) {
-        this.orderId = data().deepCopy(fields()[4].schema(), other.orderId);
+      if (isValidValue(fields()[4], other.applicationId)) {
+        this.applicationId = data().deepCopy(fields()[4].schema(), other.applicationId);
         fieldSetFlags()[4] = true;
       }
       if (isValidValue(fields()[5], other.price)) {
@@ -490,7 +490,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setId(java.util.UUID value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -510,7 +510,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearId() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -530,7 +530,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * @param value The value of 'sagaId'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setSagaId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setSagaId(java.util.UUID value) {
       validate(fields()[1], value);
       this.sagaId = value;
       fieldSetFlags()[1] = true;
@@ -550,7 +550,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Clears the value of the 'sagaId' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearSagaId() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearSagaId() {
       sagaId = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -570,7 +570,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * @param value The value of 'paymentId'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setPaymentId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setPaymentId(java.util.UUID value) {
       validate(fields()[2], value);
       this.paymentId = value;
       fieldSetFlags()[2] = true;
@@ -590,88 +590,88 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Clears the value of the 'paymentId' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearPaymentId() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearPaymentId() {
       paymentId = null;
       fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'customerId' field.
+      * Gets the value of the 'confirmationId' field.
       * @return The value.
       */
-    public java.util.UUID getCustomerId() {
-      return customerId;
+    public java.util.UUID getConfirmationId() {
+      return confirmationId;
     }
 
 
     /**
-      * Sets the value of the 'customerId' field.
-      * @param value The value of 'customerId'.
+      * Sets the value of the 'confirmationId' field.
+      * @param value The value of 'confirmationId'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setCustomerId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setConfirmationId(java.util.UUID value) {
       validate(fields()[3], value);
-      this.customerId = value;
+      this.confirmationId = value;
       fieldSetFlags()[3] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'customerId' field has been set.
-      * @return True if the 'customerId' field has been set, false otherwise.
+      * Checks whether the 'confirmationId' field has been set.
+      * @return True if the 'confirmationId' field has been set, false otherwise.
       */
-    public boolean hasCustomerId() {
+    public boolean hasConfirmationId() {
       return fieldSetFlags()[3];
     }
 
 
     /**
-      * Clears the value of the 'customerId' field.
+      * Clears the value of the 'confirmationId' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearCustomerId() {
-      customerId = null;
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearConfirmationId() {
+      confirmationId = null;
       fieldSetFlags()[3] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'orderId' field.
+      * Gets the value of the 'applicationId' field.
       * @return The value.
       */
-    public java.util.UUID getOrderId() {
-      return orderId;
+    public java.util.UUID getApplicationId() {
+      return applicationId;
     }
 
 
     /**
-      * Sets the value of the 'orderId' field.
-      * @param value The value of 'orderId'.
+      * Sets the value of the 'applicationId' field.
+      * @param value The value of 'applicationId'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setOrderId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setApplicationId(java.util.UUID value) {
       validate(fields()[4], value);
-      this.orderId = value;
+      this.applicationId = value;
       fieldSetFlags()[4] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'orderId' field has been set.
-      * @return True if the 'orderId' field has been set, false otherwise.
+      * Checks whether the 'applicationId' field has been set.
+      * @return True if the 'applicationId' field has been set, false otherwise.
       */
-    public boolean hasOrderId() {
+    public boolean hasApplicationId() {
       return fieldSetFlags()[4];
     }
 
 
     /**
-      * Clears the value of the 'orderId' field.
+      * Clears the value of the 'applicationId' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearOrderId() {
-      orderId = null;
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearApplicationId() {
+      applicationId = null;
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -690,7 +690,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * @param value The value of 'price'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setPrice(java.math.BigDecimal value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setPrice(java.math.BigDecimal value) {
       validate(fields()[5], value);
       this.price = value;
       fieldSetFlags()[5] = true;
@@ -710,7 +710,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Clears the value of the 'price' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearPrice() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearPrice() {
       price = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -730,7 +730,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * @param value The value of 'createdAt'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setCreatedAt(java.time.Instant value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setCreatedAt(java.time.Instant value) {
       validate(fields()[6], value);
       this.createdAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
       fieldSetFlags()[6] = true;
@@ -750,7 +750,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Clears the value of the 'createdAt' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearCreatedAt() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearCreatedAt() {
       fieldSetFlags()[6] = false;
       return this;
     }
@@ -759,7 +759,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Gets the value of the 'paymentStatus' field.
       * @return The value.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentStatus getPaymentStatus() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentStatus getPaymentStatus() {
       return paymentStatus;
     }
 
@@ -769,7 +769,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * @param value The value of 'paymentStatus'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setPaymentStatus(com.mylearning.kafka.order.avro.model.PaymentStatus value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setPaymentStatus(com.eduk.kafka.confirmation.avro.model.PaymentStatus value) {
       validate(fields()[7], value);
       this.paymentStatus = value;
       fieldSetFlags()[7] = true;
@@ -789,7 +789,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Clears the value of the 'paymentStatus' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearPaymentStatus() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearPaymentStatus() {
       paymentStatus = null;
       fieldSetFlags()[7] = false;
       return this;
@@ -809,7 +809,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * @param value The value of 'failureMessages'.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder setFailureMessages(java.util.List<java.lang.String> value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder setFailureMessages(java.util.List<java.lang.String> value) {
       validate(fields()[8], value);
       this.failureMessages = value;
       fieldSetFlags()[8] = true;
@@ -829,7 +829,7 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
       * Clears the value of the 'failureMessages' field.
       * @return This builder.
       */
-    public com.mylearning.kafka.order.avro.model.PaymentResponseAvroModel.Builder clearFailureMessages() {
+    public com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel.Builder clearFailureMessages() {
       failureMessages = null;
       fieldSetFlags()[8] = false;
       return this;
@@ -843,11 +843,11 @@ public class PaymentResponseAvroModel extends org.apache.avro.specific.SpecificR
         record.id = fieldSetFlags()[0] ? this.id : (java.util.UUID) defaultValue(fields()[0]);
         record.sagaId = fieldSetFlags()[1] ? this.sagaId : (java.util.UUID) defaultValue(fields()[1]);
         record.paymentId = fieldSetFlags()[2] ? this.paymentId : (java.util.UUID) defaultValue(fields()[2]);
-        record.customerId = fieldSetFlags()[3] ? this.customerId : (java.util.UUID) defaultValue(fields()[3]);
-        record.orderId = fieldSetFlags()[4] ? this.orderId : (java.util.UUID) defaultValue(fields()[4]);
+        record.confirmationId = fieldSetFlags()[3] ? this.confirmationId : (java.util.UUID) defaultValue(fields()[3]);
+        record.applicationId = fieldSetFlags()[4] ? this.applicationId : (java.util.UUID) defaultValue(fields()[4]);
         record.price = fieldSetFlags()[5] ? this.price : (java.math.BigDecimal) defaultValue(fields()[5]);
         record.createdAt = fieldSetFlags()[6] ? this.createdAt : (java.time.Instant) defaultValue(fields()[6]);
-        record.paymentStatus = fieldSetFlags()[7] ? this.paymentStatus : (com.mylearning.kafka.order.avro.model.PaymentStatus) defaultValue(fields()[7]);
+        record.paymentStatus = fieldSetFlags()[7] ? this.paymentStatus : (com.eduk.kafka.confirmation.avro.model.PaymentStatus) defaultValue(fields()[7]);
         record.failureMessages = fieldSetFlags()[8] ? this.failureMessages : (java.util.List<java.lang.String>) defaultValue(fields()[8]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {

@@ -45,7 +45,7 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
     }
 
 
-    public void initCancellingFeePayment(List<String> failureMessages){
+    public void initCancellingConfirmation(List<String> failureMessages){
         if(confirmationStatus!= ConfirmationStatus.PAID){
             throw new ConfirmationDomainException("Application is not in the correct state for initCancel operation!");
         }
@@ -59,7 +59,7 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
         }
     }
 
-    public void cancelFeePayment( List<String> failureMessages){
+    public void cancelConfirmation(List<String> failureMessages){
         if(!(confirmationStatus == ConfirmationStatus.CANCELLING || confirmationStatus == ConfirmationStatus.PENDING)){
             throw new ConfirmationDomainException("Application is not in the correct state for cancel operation!");
         }

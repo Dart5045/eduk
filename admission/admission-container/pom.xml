@@ -13,5 +13,54 @@
 
     <properties>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>admission-domain-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>admission-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>admission-application</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>admission-dataaccess</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>admission-messaging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <image>
+                        <name>${project.groupId}/admission:${project.version}</name>
+                    </image>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build-image</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -106,6 +106,21 @@
         <artifactId>admission-domain-core</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>admission-dataaccess</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>admission-application</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>admission-messaging</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
 
       <!--Eduk infrastructure dependencies-->

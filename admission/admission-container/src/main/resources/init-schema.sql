@@ -1,0 +1,8 @@
+DROP SCHEMA IF EXISTS "confirmation" CASCADE;
+
+CREATE SCHEMA "confirmation";
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+DROP TYPE IF EXISTS confirmation_status;
+CREATE TYPE confirmation_status AS ENUM ('PENDING', 'PAID', 'APPROVED', 'CANCELLED', 'CANCELLING');

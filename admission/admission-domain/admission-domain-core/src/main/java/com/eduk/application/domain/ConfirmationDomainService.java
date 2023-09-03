@@ -11,8 +11,8 @@ import java.util.List;
 public interface ConfirmationDomainService {
 
     ConfirmationCreatedEvent validateAndInitiatePaymentFee(Confirmation confirmation);
-    ConfirmationPaidEvent payFee(Application  application);
-    void approvePaymentFee(Application application);
-    ConfirmationCancelledEvent cancelFeePaymentEvent(Application application, List<String> failureMessages);
-    void cancelPaymentFee(Application application, List<String> failureMessages);
+    ConfirmationPaidEvent payFee(Confirmation confirmation);
+    void approveConfirmation(Confirmation application);
+    ConfirmationCancelledEvent cancelFeePaymentEvent(Confirmation confirmation, List<String> failureMessages);
+    void cancelPaymentFee(Confirmation confirmation, List<String> failureMessages);
 }

@@ -10,9 +10,5 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>finance-application</artifactId>
     <dependencies>
-        <dependency>
-            <groupId>com.eduk</groupId>
-            <artifactId>finance-application</artifactId>
-        </dependency>
     </dependencies>
 </project>

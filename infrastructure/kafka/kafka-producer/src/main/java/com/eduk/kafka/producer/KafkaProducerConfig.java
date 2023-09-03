@@ -1,6 +1,7 @@
 package com.eduk.kafka.producer;
 
 import com.mylearning.kafka.config.data.KafkaConfigData;
+import com.mylearning.kafka.config.data.KafkaProducerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.context.annotation.Bean;
@@ -17,13 +18,9 @@ import java.util.Map;
 public class  KafkaProducerConfig <K extends Serializable, V extends SpecificRecordBase> {
 
     private final KafkaConfigData kafkaConfigData;
-    private final KafkaProducerConfig kafkaProducerConfigData;
+    private final KafkaProducerConfigData kafkaProducerConfigData;
 
-
-    @Value("${spring.kafka.boostrap-servers}")
-    private String boostrapServers;
-
-    public KafkaProducerConfig(KafkaConfigData kafkaConfigData, KafkaProducerConfig kafkaProducerConfigData) {
+    public KafkaProducerConfig(KafkaConfigData kafkaConfigData, KafkaProducerConfigData kafkaProducerConfigData) {
         this.kafkaConfigData = kafkaConfigData;
         this.kafkaProducerConfigData = kafkaProducerConfigData;
     }

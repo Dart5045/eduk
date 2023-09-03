@@ -6,6 +6,7 @@ import com.eduk.application.domain.event.ConfirmationCreatedEvent;
 import com.eduk.application.domain.event.ConfirmationPaidEvent;
 import com.eduk.application.domain.exception.ConfirmationDomainException;
 import com.eduk.application.domain.valueobject.ApplicationStatus;
+import com.eduk.application.domain.valueobject.ConfirmationStatus;
 import com.eduk.domain.valueobject.Money;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,8 +21,8 @@ public class ConfirmationDomainServiceImpl implements ConfirmationDomainService 
     public ConfirmationCreatedEvent validateAndInitiatePaymentFee(Confirmation confirmation) {
         validateApplication(confirmation);
         updateConfirmationPrice(confirmation);
-        confirmation.validateFeePayment();
-        confirmation.initFeePayment();
+        confirmation.validateConfirmation();
+        confirmation.initializeConfirmation();
         log.info("PaymentFee with id:{} is initiated");
         return new ConfirmationCreatedEvent(confirmation, ZonedDateTime.now(ZoneId.of("UTC")));
     }
@@ -31,34 +32,34 @@ public class ConfirmationDomainServiceImpl implements ConfirmationDomainService 
     }
 
     private void validateApplication(Confirmation confirmation) {
-        if(confirmation.getStatus()== ApplicationStatus.CANCELLED){
+        if(confirmation.getConfirmationStatus()== ConfirmationStatus.CANCELLED){
             throw new ConfirmationDomainException("Application with id:"+confirmation.getId()+ " is not current active");
         }
     }
 
     @Override
-    public ConfirmationPaidEvent payFee(Confirmation application) {
+    public ConfirmationPaidEvent payFee(Confirmation confirmation) {
 
-        application.payConfirmation();
-        log.info("Application Payment fee with id : {} is paid",application.getId());
-        return new ConfirmationPaidEvent(application,ZonedDateTime.now(ZoneId.of("UTC")));
+        confirmation.payConfirmation();
+        log.info("Application Payment fee with id : {} is paid",confirmation.getId());
+        return new ConfirmationPaidEvent(confirmation,ZonedDateTime.now(ZoneId.of("UTC")));
     }
 
     @Override
-    public void approvePaymentFee(Confirmation application) {
+    public void approveConfirmation(Confirmation application) {
         log.info("Application Payment fee with id : {} is approved",application.getId());
     }
 
     @Override
-    public ConfirmationCancelledEvent cancelFeePaymentEvent(Confirmation application, List<String> failureMessages) {
-        application.initCancellingConfirmation(failureMessages);
-        log.info("Payment fee is cancelling for application id : {}",application.getId());
-        return new ConfirmationCancelledEvent(application,ZonedDateTime.now(ZoneId.of("UTC")));
+    public ConfirmationCancelledEvent cancelFeePaymentEvent(Confirmation confirmation, List<String> failureMessages) {
+        confirmation.initCancellingConfirmation(failureMessages);
+        log.info("Payment fee is cancelling for application id : {}",confirmation.getId());
+        return new ConfirmationCancelledEvent(confirmation,ZonedDateTime.now(ZoneId.of("UTC")));
     }
 
     @Override
-    public void cancelPaymentFee(Confirmation application, List<String> failureMessages) {
-        application.cancelConfirmation(failureMessages);
-        log.info("Payment fee for application id : {} is cancelled",application.getId());
+    public void cancelPaymentFee(Confirmation confirmation, List<String> failureMessages) {
+        confirmation.cancelConfirmation(failureMessages);
+        log.info("Payment fee for application id : {} is cancelled",confirmation.getId());
     }
 }

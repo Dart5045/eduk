@@ -8,17 +8,13 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>kafka-model</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
-            <!-- Remover esto, la versión tiene que recibirla del pom principal-->
-            <version>1.11.2</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
