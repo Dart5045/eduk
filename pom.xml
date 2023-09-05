@@ -123,6 +123,27 @@
         <version>${project.version}</version>
       </dependency>
 
+      <!--Eduk payment dependencies-->
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>payment-domain-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>payment-application-service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>payment-dataaccess</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>payment-messaging</artifactId>
+        <version>${project.version}</version>
+        </dependency>
 
       <!--Eduk infrastructure dependencies-->
       <dependency>
@@ -143,6 +164,11 @@
       <dependency>
         <groupId>com.eduk</groupId>
         <artifactId>kafka-config-data</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>saga</artifactId>
         <version>${project.version}</version>
       </dependency>
 

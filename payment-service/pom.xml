@@ -9,11 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>payments</artifactId>
+    <artifactId>payment-service</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>payment-application</module>
         <module>payment-domain</module>
+        <module>payment-dataaccess</module>
+        <module>payment-messaging</module>
+        <module>payment-container</module>
     </modules>
 
     <properties>

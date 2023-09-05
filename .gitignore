@@ -31,4 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
-/infrastructure/docker-compose/volumes/
+
+### Kafka ###
+/infrastructure/dockercompose/volumes/

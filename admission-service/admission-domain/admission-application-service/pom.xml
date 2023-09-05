@@ -36,5 +36,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>saga</artifactId>
+        </dependency>
     </dependencies>
 </project>

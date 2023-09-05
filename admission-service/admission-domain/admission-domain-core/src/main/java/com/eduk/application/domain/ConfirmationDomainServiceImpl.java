@@ -15,6 +15,8 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 
+import static com.eduk.domain.DomainConstants.UTC;
+
 @Slf4j
 public class ConfirmationDomainServiceImpl implements ConfirmationDomainService {
     @Override
@@ -24,7 +26,7 @@ public class ConfirmationDomainServiceImpl implements ConfirmationDomainService 
         confirmation.validateConfirmation();
         confirmation.initializeConfirmation();
         log.info("PaymentFee with id:{} is initiated");
-        return new ConfirmationCreatedEvent(confirmation, ZonedDateTime.now(ZoneId.of("UTC")));
+        return new ConfirmationCreatedEvent(confirmation, ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
     private void updateConfirmationPrice(Confirmation confirmation) {
@@ -42,7 +44,7 @@ public class ConfirmationDomainServiceImpl implements ConfirmationDomainService 
 
         confirmation.payConfirmation();
         log.info("Application Payment fee with id : {} is paid",confirmation.getId());
-        return new ConfirmationPaidEvent(confirmation,ZonedDateTime.now(ZoneId.of("UTC")));
+        return new ConfirmationPaidEvent(confirmation,ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
     @Override
@@ -54,7 +56,7 @@ public class ConfirmationDomainServiceImpl implements ConfirmationDomainService 
     public ConfirmationCancelledEvent cancelFeePaymentEvent(Confirmation confirmation, List<String> failureMessages) {
         confirmation.initCancellingConfirmation(failureMessages);
         log.info("Payment fee is cancelling for application id : {}",confirmation.getId());
-        return new ConfirmationCancelledEvent(confirmation,ZonedDateTime.now(ZoneId.of("UTC")));
+        return new ConfirmationCancelledEvent(confirmation,ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
     @Override
