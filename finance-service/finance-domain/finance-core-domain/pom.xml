@@ -11,6 +11,9 @@
 
     <artifactId>finance-core-domain</artifactId>
     <dependencies>
-
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>common-domain</artifactId>
+        </dependency>
     </dependencies>
 </project>

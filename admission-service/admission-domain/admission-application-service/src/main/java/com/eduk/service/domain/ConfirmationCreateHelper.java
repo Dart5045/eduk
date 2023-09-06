@@ -7,6 +7,7 @@ import com.eduk.application.domain.event.ConfirmationCreatedEvent;
 import com.eduk.application.domain.exception.ConfirmationDomainException;
 import com.eduk.service.domain.dto.create.CreateConfirmationCommand;
 import com.eduk.service.domain.mapper.ConfirmationDataMapper;
+import com.eduk.service.domain.ports.output.message.publisher.payment.ConfirmationCreatedPaymentRequestMessagePublisher;
 import com.eduk.service.domain.ports.output.repository.ApplicationRepository;
 import com.eduk.service.domain.ports.output.repository.ConfirmationRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -24,14 +25,19 @@ public class ConfirmationCreateHelper {
     private final ApplicationRepository applicationRepository;
     private final ConfirmationDataMapper confirmationDataMapper;
 
+    private final ConfirmationCreatedPaymentRequestMessagePublisher confirmationCreatedPaymentRequestMessagePublisher;
+
+
     public ConfirmationCreateHelper(ConfirmationDomainService confirmationDomainService
             , ConfirmationRepository confirmationRepository
             , ApplicationRepository applicationRepository
-            , ConfirmationDataMapper confirmationDataMapper) {
+            , ConfirmationDataMapper confirmationDataMapper
+            , ConfirmationCreatedPaymentRequestMessagePublisher confirmationCreatedPaymentRequestMessagePublisher) {
         this.confirmationDomainService = confirmationDomainService;
         this.confirmationRepository = confirmationRepository;
         this.applicationRepository = applicationRepository;
         this.confirmationDataMapper = confirmationDataMapper;
+        this.confirmationCreatedPaymentRequestMessagePublisher = confirmationCreatedPaymentRequestMessagePublisher;
     }
 
     @Transactional
@@ -39,7 +45,8 @@ public class ConfirmationCreateHelper {
             CreateConfirmationCommand createConfirmationCommand){
         checkApplication(createConfirmationCommand.getApplicationId());
         Confirmation confirmation = confirmationDataMapper.createConfirmationCommandToConfirmation(createConfirmationCommand);
-        ConfirmationCreatedEvent confirmationCreatedEvent = confirmationDomainService.validateAndInitiateConfirmation(confirmation);
+        ConfirmationCreatedEvent confirmationCreatedEvent = confirmationDomainService
+                .validateAndInitiateConfirmation(confirmation,confirmationCreatedPaymentRequestMessagePublisher);
         saveConfirmation(confirmation);
         log.info("Confirmation is created with id:{}",confirmationCreatedEvent.getConfirmation().getId());
         return confirmationCreatedEvent;

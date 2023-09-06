@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>admission-domain-core</artifactId>
-    <properties></properties>
+    <properties>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.eduk</groupId>

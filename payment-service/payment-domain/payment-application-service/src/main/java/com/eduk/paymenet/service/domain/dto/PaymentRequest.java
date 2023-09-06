@@ -1,6 +1,5 @@
 package com.eduk.paymenet.service.domain.dto;
 
-import com.eduk.domain.valueobject.PaymentStatus;
 import com.eduk.payment.service.domain.valueobject.PaymentConfirmationStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +8,6 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.ZonedDateTime;
-import java.util.UUID;
 
 @Getter
 @Setter

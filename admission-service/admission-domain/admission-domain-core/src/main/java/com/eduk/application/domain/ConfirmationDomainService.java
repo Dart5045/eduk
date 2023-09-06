@@ -10,13 +10,13 @@ import java.util.List;
 
 public interface ConfirmationDomainService {
 
-    ConfirmationCreatedEvent validateAndInitiateConfirmation(Confirmation confirmation);
+    ConfirmationCreatedEvent validateAndInitiateConfirmation(Confirmation confirmation,  DomainEventPublisher<ConfirmationCreatedEvent> confirmationCreatedEventDomainEventPublisher);
 
     ConfirmationPaidEvent payConfirmation(Confirmation confirmation, DomainEventPublisher<ConfirmationPaidEvent> confirmationPaidEventDomainEventPublisher);
 
-    void approveConfirmation(Confirmation application);
-    ConfirmationCancelledEvent cancelFeePaymentEvent(Confirmation confirmation, List<String> failureMessages);
-    ConfirmationCancelledEvent cancelConfirmationPayment(Confirmation confirmation, List<String> failureMessages, DomainEventPublisher<ConfirmationCancelledEvent> confirmationCancelledEventDomainEventPublisher);
-    void cancelConfirmation(Confirmation confirmation, List<String> failureMessages);
+    void approveConfirmation(Confirmation confirmation);
 
+    ConfirmationCancelledEvent cancelConfirmationPayment(Confirmation confirmation, List<String> failureMessages, DomainEventPublisher<ConfirmationCancelledEvent> confirmationCancelledEventDomainEventPublisher);
+
+    void cancelConfirmation(Confirmation confirmation, List<String> failureMessages);
 }

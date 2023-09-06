@@ -1,0 +1,59 @@
+{
+    "namespace": "com.eduk.kafka.confirmation.avro.model",
+    "type": "record",
+    "name": "FinanceApprovalResponseAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "financeId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "confirmationId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        },
+        {
+            "name": "confirmationApprovalStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "ConfirmationApprovalStatus",
+                  "symbols": ["APPROVED", "REJECTED"]
+               }
+        },
+        {
+            "name": "failureMessages",
+            "type": {
+                "type": "array",
+                "items":{
+                  "type":"string"
+               }
+            }
+        }
+    ]
+}

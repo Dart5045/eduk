@@ -22,6 +22,10 @@ public class Money{
     public boolean isGreaterThan(Money amount){
         return this.amount!= null && this.amount.compareTo(amount.getAmount())>0;
     }
+    public Money multiply(int multiplier) {
+        return new Money(setScale(this.amount.multiply(new BigDecimal(multiplier))));
+    }
+
 
     public Money add(Money money){
         return new Money(setScale(this.amount.add(money.getAmount())));

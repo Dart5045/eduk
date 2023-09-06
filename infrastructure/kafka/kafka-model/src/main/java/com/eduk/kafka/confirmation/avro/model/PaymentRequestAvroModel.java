@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 2210425643821208054L;
+  private static final long serialVersionUID = 640563977530675804L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PaymentRequestAvroModel\",\"namespace\":\"com.eduk.kafka.confirmation.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"applicationId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"confirmationId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"price\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"paymentOrderStatus\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentOrderStatus\",\"symbols\":[\"PENDING\",\"CANCELLED\"]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PaymentRequestAvroModel\",\"namespace\":\"com.eduk.kafka.confirmation.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"applicationId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"confirmationId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"price\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"paymentConfirmationStatus\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentConfirmationStatus\",\"symbols\":[\"PENDING\",\"CANCELLED\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -84,7 +84,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
   private java.util.UUID confirmationId;
   private java.math.BigDecimal price;
   private java.time.Instant createdAt;
-  private com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus paymentOrderStatus;
+  private com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus paymentConfirmationStatus;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -101,16 +101,16 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
    * @param confirmationId The new value for confirmationId
    * @param price The new value for price
    * @param createdAt The new value for createdAt
-   * @param paymentOrderStatus The new value for paymentOrderStatus
+   * @param paymentConfirmationStatus The new value for paymentConfirmationStatus
    */
-  public PaymentRequestAvroModel(java.util.UUID id, java.util.UUID sagaId, java.util.UUID applicationId, java.util.UUID confirmationId, java.math.BigDecimal price, java.time.Instant createdAt, com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus paymentOrderStatus) {
+  public PaymentRequestAvroModel(java.util.UUID id, java.util.UUID sagaId, java.util.UUID applicationId, java.util.UUID confirmationId, java.math.BigDecimal price, java.time.Instant createdAt, com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus paymentConfirmationStatus) {
     this.id = id;
     this.sagaId = sagaId;
     this.applicationId = applicationId;
     this.confirmationId = confirmationId;
     this.price = price;
     this.createdAt = createdAt.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-    this.paymentOrderStatus = paymentOrderStatus;
+    this.paymentConfirmationStatus = paymentConfirmationStatus;
   }
 
   @Override
@@ -129,7 +129,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
     case 3: return confirmationId;
     case 4: return price;
     case 5: return createdAt;
-    case 6: return paymentOrderStatus;
+    case 6: return paymentConfirmationStatus;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -162,7 +162,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
     case 3: confirmationId = (java.util.UUID)value$; break;
     case 4: price = (java.math.BigDecimal)value$; break;
     case 5: createdAt = (java.time.Instant)value$; break;
-    case 6: paymentOrderStatus = (com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus)value$; break;
+    case 6: paymentConfirmationStatus = (com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -270,20 +270,20 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
   }
 
   /**
-   * Gets the value of the 'paymentOrderStatus' field.
-   * @return The value of the 'paymentOrderStatus' field.
+   * Gets the value of the 'paymentConfirmationStatus' field.
+   * @return The value of the 'paymentConfirmationStatus' field.
    */
-  public com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus getPaymentOrderStatus() {
-    return paymentOrderStatus;
+  public com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus getPaymentConfirmationStatus() {
+    return paymentConfirmationStatus;
   }
 
 
   /**
-   * Sets the value of the 'paymentOrderStatus' field.
+   * Sets the value of the 'paymentConfirmationStatus' field.
    * @param value the value to set.
    */
-  public void setPaymentOrderStatus(com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus value) {
-    this.paymentOrderStatus = value;
+  public void setPaymentConfirmationStatus(com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus value) {
+    this.paymentConfirmationStatus = value;
   }
 
   /**
@@ -333,7 +333,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
     private java.util.UUID confirmationId;
     private java.math.BigDecimal price;
     private java.time.Instant createdAt;
-    private com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus paymentOrderStatus;
+    private com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus paymentConfirmationStatus;
 
     /** Creates a new Builder */
     private Builder() {
@@ -370,8 +370,8 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
         this.createdAt = data().deepCopy(fields()[5].schema(), other.createdAt);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.paymentOrderStatus)) {
-        this.paymentOrderStatus = data().deepCopy(fields()[6].schema(), other.paymentOrderStatus);
+      if (isValidValue(fields()[6], other.paymentConfirmationStatus)) {
+        this.paymentConfirmationStatus = data().deepCopy(fields()[6].schema(), other.paymentConfirmationStatus);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
     }
@@ -406,8 +406,8 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
         this.createdAt = data().deepCopy(fields()[5].schema(), other.createdAt);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.paymentOrderStatus)) {
-        this.paymentOrderStatus = data().deepCopy(fields()[6].schema(), other.paymentOrderStatus);
+      if (isValidValue(fields()[6], other.paymentConfirmationStatus)) {
+        this.paymentConfirmationStatus = data().deepCopy(fields()[6].schema(), other.paymentConfirmationStatus);
         fieldSetFlags()[6] = true;
       }
     }
@@ -652,41 +652,41 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
     }
 
     /**
-      * Gets the value of the 'paymentOrderStatus' field.
+      * Gets the value of the 'paymentConfirmationStatus' field.
       * @return The value.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus getPaymentOrderStatus() {
-      return paymentOrderStatus;
+    public com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus getPaymentConfirmationStatus() {
+      return paymentConfirmationStatus;
     }
 
 
     /**
-      * Sets the value of the 'paymentOrderStatus' field.
-      * @param value The value of 'paymentOrderStatus'.
+      * Sets the value of the 'paymentConfirmationStatus' field.
+      * @param value The value of 'paymentConfirmationStatus'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setPaymentOrderStatus(com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus value) {
+    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setPaymentConfirmationStatus(com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus value) {
       validate(fields()[6], value);
-      this.paymentOrderStatus = value;
+      this.paymentConfirmationStatus = value;
       fieldSetFlags()[6] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'paymentOrderStatus' field has been set.
-      * @return True if the 'paymentOrderStatus' field has been set, false otherwise.
+      * Checks whether the 'paymentConfirmationStatus' field has been set.
+      * @return True if the 'paymentConfirmationStatus' field has been set, false otherwise.
       */
-    public boolean hasPaymentOrderStatus() {
+    public boolean hasPaymentConfirmationStatus() {
       return fieldSetFlags()[6];
     }
 
 
     /**
-      * Clears the value of the 'paymentOrderStatus' field.
+      * Clears the value of the 'paymentConfirmationStatus' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearPaymentOrderStatus() {
-      paymentOrderStatus = null;
+    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearPaymentConfirmationStatus() {
+      paymentConfirmationStatus = null;
       fieldSetFlags()[6] = false;
       return this;
     }
@@ -702,7 +702,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
         record.confirmationId = fieldSetFlags()[3] ? this.confirmationId : (java.util.UUID) defaultValue(fields()[3]);
         record.price = fieldSetFlags()[4] ? this.price : (java.math.BigDecimal) defaultValue(fields()[4]);
         record.createdAt = fieldSetFlags()[5] ? this.createdAt : (java.time.Instant) defaultValue(fields()[5]);
-        record.paymentOrderStatus = fieldSetFlags()[6] ? this.paymentOrderStatus : (com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus) defaultValue(fields()[6]);
+        record.paymentConfirmationStatus = fieldSetFlags()[6] ? this.paymentConfirmationStatus : (com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus) defaultValue(fields()[6]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

@@ -5,7 +5,6 @@ import com.eduk.domain.valueobject.ConfirmationId;
 import com.eduk.domain.valueobject.Money;
 import com.eduk.paymenet.service.domain.dto.PaymentRequest;
 import com.eduk.payment.service.domain.entity.Payment;
-import com.eduk.payment.service.domain.valueobject.PaymentId;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

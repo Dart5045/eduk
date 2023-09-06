@@ -1,0 +1,73 @@
+{
+    "namespace": "com.eduk.kafka.confirmation.avro.model",
+    "type": "record",
+    "name": "FinanceApprovalRequestAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "financeId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "confirmationId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "financeConfirmationStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "FinanceConfirmationStatus",
+                  "symbols": ["PAID"]
+            }
+        },
+        {
+            "name": "products",
+            "type": {
+                "type": "array",
+                "items":{
+                  "name":"Product",
+                  "type":"record",
+                  "fields":[
+                    {"name":"id", "type": "string", "logicalType": "uuid"},
+                    {"name":"quantity", "type": "int"}
+                   ]
+               }
+            }
+        },
+        {
+            "name": "price",
+            "type": {
+                "type": "bytes",
+                "logicalType": "decimal",
+                "precision": 10,
+                "scale": 2
+            }
+        },
+        {
+            "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        }
+    ]
+}

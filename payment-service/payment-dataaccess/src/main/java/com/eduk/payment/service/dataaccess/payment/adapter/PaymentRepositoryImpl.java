@@ -28,8 +28,9 @@ public class PaymentRepositoryImpl implements PaymentRepository {
                         .save(paymentDataAccessMapper.paymentToPaymentEntity(payment)));
     }
 
+
     @Override
-    public Optional<Payment> findByConfirmationID(UUID confirmationId) {
+    public Optional<Payment> findByConfirmationId(UUID confirmationId) {
         return paymentJpaRepository.findByConfirmationId(confirmationId)
                 .map(paymentDataAccessMapper::paymentEntityToPayment);
     }
