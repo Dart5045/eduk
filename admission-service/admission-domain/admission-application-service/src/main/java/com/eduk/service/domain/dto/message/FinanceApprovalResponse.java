@@ -16,7 +16,8 @@ import java.util.List;
 public class FinanceApprovalResponse {
     private String id;
     private String sagaId;
-    private String applicationID;
+    private String applicationId;
+    private String confirmationId;
     private String paymentId;
     private Instant createdAt;
     private FinanceApprovalStatus financeApprovalStatus;

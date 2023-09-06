@@ -1,14 +1,15 @@
 package com.eduk.service.domain;
 
-import com.food.ordering.system.domain.event.EmptyEvent;
-import com.food.ordering.system.domain.valueobject.OrderId;
-import com.food.ordering.system.order.service.domain.dto.message.PaymentResponse;
-import com.food.ordering.system.order.service.domain.entity.Order;
-import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
-import com.food.ordering.system.order.service.domain.exception.OrderNotFoundException;
-import com.food.ordering.system.order.service.domain.ports.output.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMessagePublisher;
-import com.food.ordering.system.order.service.domain.ports.output.repository.OrderRepository;
-import com.food.ordering.system.saga.SagaStep;
+import com.eduk.application.domain.ConfirmationDomainService;
+import com.eduk.application.domain.entity.Confirmation;
+import com.eduk.application.domain.event.ConfirmationPaidEvent;
+import com.eduk.application.domain.exception.ConfirmationNotFoundException;
+import com.eduk.domain.event.EmptyEvent;
+import com.eduk.domain.valueobject.ConfirmationId;
+import com.eduk.service.domain.dto.message.PaymentResponse;
+import com.eduk.service.domain.ports.output.message.publisher.financeapproval.ConfirmationFinanceRequestMessagePublisher;
+import com.eduk.service.domain.ports.output.repository.ConfirmationRepository;
+import com.mylearning.saga.SagaStep;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,47 +19,48 @@ import java.util.UUID;
 
 @Slf4j
 @Component
-public class ConfirmationPaymentSaga implements SagaStep<PaymentResponse, OrderPaidEvent, EmptyEvent> {
+public class ConfirmationPaymentSaga implements SagaStep<PaymentResponse, ConfirmationPaidEvent, EmptyEvent> {
 
-    private final OrderDomainService orderDomainService;
-    private final OrderRepository orderRepository;
-    private final OrderPaidRestaurantRequestMessagePublisher orderPaidRestaurantRequestMessagePublisher;
+    private final ConfirmationDomainService confirmationDomainService;
+    private final ConfirmationRepository confirmationRepository;
+    private final ConfirmationFinanceRequestMessagePublisher confirmationFinanceRequestMessagePublisher;
 
-    public ConfirmationPaymentSaga(OrderDomainService orderDomainService,
-                                   OrderRepository orderRepository,
-                                   OrderPaidRestaurantRequestMessagePublisher orderPaidRestaurantRequestMessagePublisher) {
-        this.orderDomainService = orderDomainService;
-        this.orderRepository = orderRepository;
-        this.orderPaidRestaurantRequestMessagePublisher = orderPaidRestaurantRequestMessagePublisher;
+    public ConfirmationPaymentSaga(ConfirmationDomainService confirmationDomainService,
+                                   ConfirmationRepository confirmationRepository,
+                                   ConfirmationFinanceRequestMessagePublisher confirmationFinanceRequestMessagePublisher) {
+        this.confirmationDomainService = confirmationDomainService;
+        this.confirmationRepository = confirmationRepository;
+        this.confirmationFinanceRequestMessagePublisher = confirmationFinanceRequestMessagePublisher;
     }
 
     @Override
     @Transactional
-    public OrderPaidEvent process(PaymentResponse paymentResponse) {
-        log.info("Completing payment for order with id: {}", paymentResponse.getOrderId());
-        Order order = findOrder(paymentResponse.getOrderId());
-        OrderPaidEvent domainEvent = orderDomainService.payOrder(order, orderPaidRestaurantRequestMessagePublisher);
-        orderRepository.save(order);
-        log.info("Order with id: {} is paid", order.getId().getValue());
+    public ConfirmationPaidEvent process(PaymentResponse paymentResponse) {
+        log.info("Completing payment for confirmation with id: {}", paymentResponse.getConfirmationId());
+        Confirmation confirmation = findOrder(paymentResponse.getConfirmationId());
+        ConfirmationPaidEvent domainEvent = confirmationDomainService
+                .payConfirmation(confirmation, confirmationFinanceRequestMessagePublisher);
+        confirmationRepository.save(confirmation);
+        log.info("Order with id: {} is paid", confirmation.getId().getValue());
         return domainEvent;
     }
 
     @Override
     @Transactional
     public EmptyEvent rollback(PaymentResponse paymentResponse) {
-        log.info("Cancelling order with id: {}", paymentResponse.getOrderId());
-        Order order = findOrder(paymentResponse.getOrderId());
-        orderDomainService.cancelOrder(order, paymentResponse.getFailureMessages());
-        orderRepository.save(order);
-        log.info("Order with id: {} is cancelled", order.getId().getValue());
+        log.info("Cancelling confirmation with id: {}", paymentResponse.getConfirmationId());
+        Confirmation confirmation = findOrder(paymentResponse.getConfirmationId());
+        confirmationDomainService.cancelConfirmation(confirmation, paymentResponse.getFailureMessages());
+        confirmationRepository.save(confirmation);
+        log.info("Order with id: {} is cancelled", confirmation.getId().getValue());
         return EmptyEvent.INSTANCE;
     }
 
-    private Order findOrder(String orderId) {
-        Optional<Order> orderResponse = orderRepository.findById(new OrderId(UUID.fromString(orderId)));
+    private Confirmation findOrder(String orderId) {
+        Optional<Confirmation> orderResponse = confirmationRepository.findById(new ConfirmationId(UUID.fromString(orderId)));
         if (orderResponse.isEmpty()) {
             log.error("Order with id: {} could not be found!", orderId);
-            throw new OrderNotFoundException("Order with id " + orderId + " could not be found!");
+            throw new ConfirmationNotFoundException("Order with id " + orderId + " could not be found!");
         }
         return orderResponse.get();
     }

@@ -39,7 +39,7 @@ public class ConfirmationCreateHelper {
             CreateConfirmationCommand createConfirmationCommand){
         checkApplication(createConfirmationCommand.getApplicationId());
         Confirmation confirmation = confirmationDataMapper.createConfirmationCommandToConfirmation(createConfirmationCommand);
-        ConfirmationCreatedEvent confirmationCreatedEvent = confirmationDomainService.validateAndInitiatePaymentFee(confirmation);
+        ConfirmationCreatedEvent confirmationCreatedEvent = confirmationDomainService.validateAndInitiateConfirmation(confirmation);
         saveConfirmation(confirmation);
         log.info("Confirmation is created with id:{}",confirmationCreatedEvent.getConfirmation().getId());
         return confirmationCreatedEvent;

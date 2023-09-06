@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.UUID;
 
 public class Confirmation extends BaseEntity<ConfirmationId> {
+    public static final String  FAILURE_MESSAGE_DELIMITER = String.valueOf(',');
+
     private final ApplicationId applicationId;
     private ConfirmationStatus confirmationStatus;
 

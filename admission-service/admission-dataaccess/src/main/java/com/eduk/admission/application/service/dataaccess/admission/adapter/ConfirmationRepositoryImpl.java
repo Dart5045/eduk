@@ -5,9 +5,11 @@ import com.eduk.admission.application.service.dataaccess.admission.mapper.Confir
 import com.eduk.admission.application.service.dataaccess.admission.repository.ConfirmationJpaRepository;
 import com.eduk.application.domain.entity.Confirmation;
 import com.eduk.application.domain.valueobject.TrackingId;
+import com.eduk.domain.valueobject.ConfirmationId;
 import com.eduk.service.domain.ports.output.repository.ConfirmationRepository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public class ConfirmationRepositoryImpl implements ConfirmationRepository {
     private final ConfirmationJpaRepository confirmationJpaRepository;
@@ -29,5 +31,11 @@ public class ConfirmationRepositoryImpl implements ConfirmationRepository {
         return confirmationJpaRepository.findByTrackingId(trackingId.getValue()).map(
                 confirmationDataAccessMapper::confirmationEntityToConfirmation
         );
+    }
+
+    @Override
+    public Optional<Confirmation> findById(ConfirmationId confirmationId) {
+        return confirmationJpaRepository.findById(confirmationId.getValue())
+                .map(confirmationDataAccessMapper::confirmationEntityToConfirmation);
     }
 }
