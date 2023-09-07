@@ -19,3 +19,4 @@ public class CreateConfirmationResponse {
     @NotNull
     private final String message;
 }
+

@@ -66,7 +66,6 @@ public class Confirmation extends BaseEntity<ConfirmationId> {
         }
         confirmationStatus = ConfirmationStatus.CANCELLED;
         updateFailureMessages(failureMessages);
-
     }
 
     public void validateConfirmation(){
