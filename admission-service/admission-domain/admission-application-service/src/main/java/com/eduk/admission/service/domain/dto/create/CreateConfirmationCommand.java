@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -11,11 +12,12 @@ import java.util.UUID;
 @Builder
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class CreateConfirmationCommand {
     @NotNull
-    private final UUID applicationId;
+    private  UUID applicationId;
     @NotNull
-    private final UUID termRequested;
+    private  UUID termRequested;
     @NotNull
-    private final BigDecimal price;
+    private  BigDecimal price;
 }

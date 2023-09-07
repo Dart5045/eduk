@@ -4,6 +4,10 @@ logging:
   level:
     com.eduk: DEBUG
 
+lombok:
+  anyConstructor:
+    addConstructorProperties: true
+
 admission-service:
   payment-request-topic-name: payment-request
   payment-response-topic-name: payment-response
