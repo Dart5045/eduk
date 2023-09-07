@@ -1,8 +1,8 @@
 package com.eduk.payment.service.domain.entity;
 
-import com.eduk.domain.entity.BaseEntity;
-import com.eduk.domain.valueobject.ApplicationId;
-import com.eduk.domain.valueobject.Money;
+import com.eduk.admission.service.domain.entity.BaseEntity;
+import com.eduk.admission.service.domain.valueobject.ApplicationId;
+import com.eduk.admission.service.domain.valueobject.Money;
 import com.eduk.payment.service.domain.valueobject.CreditHistoryId;
 import com.eduk.payment.service.domain.valueobject.TransactionType;
 

@@ -1,7 +1,10 @@
 package com.eduk.payment.service.domain.entity;
 
-import com.eduk.domain.entity.AggregateRoot;
-import com.eduk.domain.valueobject.*;
+import com.eduk.admission.service.domain.entity.AggregateRoot;
+import com.eduk.admission.service.domain.valueobject.ApplicationId;
+import com.eduk.admission.service.domain.valueobject.ConfirmationId;
+import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.admission.service.domain.valueobject.PaymentStatus;
 import com.eduk.payment.service.domain.valueobject.PaymentId;
 
 import java.time.ZoneId;

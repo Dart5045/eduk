@@ -1,9 +1,9 @@
 package com.eduk.payment.service.dataaccess.creditentry.adapter;
 
-import com.eduk.domain.valueobject.ApplicationId;
-import com.eduk.paymenet.service.domain.ports.output.repository.CreditEntryRepository;
 import com.eduk.payment.service.dataaccess.creditentry.mapper.CreditEntryDataAccessMapper;
 import com.eduk.payment.service.dataaccess.creditentry.repository.CreditEntryJpaRepository;
+import com.eduk.admission.service.domain.valueobject.ApplicationId;
+import com.eduk.paymenet.service.domain.ports.output.repository.CreditEntryRepository;
 import com.eduk.payment.service.domain.entity.CreditEntry;
 import org.springframework.stereotype.Component;
 

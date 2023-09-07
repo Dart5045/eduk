@@ -1,7 +1,7 @@
 package com.eduk.kafka.producer;
 
-import com.mylearning.kafka.config.data.KafkaConfigData;
-import com.mylearning.kafka.config.data.KafkaProducerConfigData;
+import com.eduk.kafka.config.data.KafkaConfigData;
+import com.eduk.kafka.config.data.KafkaProducerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.context.annotation.Bean;

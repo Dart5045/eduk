@@ -1,9 +1,9 @@
 package com.eduk.finance.service.domain.entity;
 
-import com.eduk.domain.entity.BaseEntity;
-import com.eduk.domain.valueobject.ConfirmationApprovalStatus;
-import com.eduk.domain.valueobject.ConfirmationId;
-import com.eduk.domain.valueobject.FinanceId;
+import com.eduk.admission.service.domain.entity.BaseEntity;
+import com.eduk.admission.service.domain.valueobject.ConfirmationApprovalStatus;
+import com.eduk.admission.service.domain.valueobject.ConfirmationId;
+import com.eduk.admission.service.domain.valueobject.FinanceId;
 import com.eduk.finance.service.domain.valueobject.ConfirmationApprovalId;
 
 public class ConfirmationApproval extends BaseEntity<ConfirmationApprovalId> {

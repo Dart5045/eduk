@@ -1,10 +1,10 @@
 package com.eduk.payment.service.messaging.listener.kafka;
 
-import com.eduk.kafka.confirmation.avro.model.PaymentOrderStatus;
+import com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus;
 import com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel;
 import com.eduk.paymenet.service.domain.ports.input.message.listener.PaymentRequestMessageListener;
 import com.eduk.payment.service.messaging.mapper.PaymentMessagingDataMapper;
-import com.mylearning.kafka.consumer.KafkaConsumer;
+import com.eduk.kafka.consumer.KafkaConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -41,11 +41,11 @@ public class PaymentRequestKafkaListener implements KafkaConsumer<PaymentRequest
                 offsets.toString());
 
         messages.forEach(paymentRequestAvroModel -> {
-            if (PaymentOrderStatus.PENDING == paymentRequestAvroModel.getPaymentOrderStatus()) {
+            if (PaymentConfirmationStatus.PENDING == paymentRequestAvroModel.getPaymentConfirmationStatus()) {
                 log.info("Processing payment for order id: {}", paymentRequestAvroModel.getConfirmationId());
                 paymentRequestMessageListener.completePayment(paymentMessagingDataMapper
                         .paymentRequestAvroModelToPaymentRequest(paymentRequestAvroModel));
-            } else if(PaymentOrderStatus.CANCELLED == paymentRequestAvroModel.getPaymentOrderStatus()) {
+            } else if(PaymentConfirmationStatus.CANCELLED == paymentRequestAvroModel.getPaymentConfirmationStatus()) {
                 log.info("Cancelling payment for order id: {}", paymentRequestAvroModel.getConfirmationId());
                 paymentRequestMessageListener.cancelPayment(paymentMessagingDataMapper
                         .paymentRequestAvroModelToPaymentRequest(paymentRequestAvroModel));

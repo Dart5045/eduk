@@ -1,6 +1,6 @@
 package com.eduk.payment.service.dataaccess.payment.entity;
 
-import com.eduk.domain.valueobject.PaymentStatus;
+import com.eduk.admission.service.domain.valueobject.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

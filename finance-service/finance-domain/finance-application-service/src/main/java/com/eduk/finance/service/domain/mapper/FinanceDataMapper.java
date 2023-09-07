@@ -1,13 +1,13 @@
 package com.eduk.finance.service.domain.mapper;
 
-import com.eduk.domain.valueobject.ConfirmationId;
-import com.eduk.domain.valueobject.ConfirmationStatus;
-import com.eduk.domain.valueobject.FinanceId;
-import com.eduk.domain.valueobject.Money;
-import com.eduk.finance.service.domain.dto.FinanceApprovalRequest;
+import com.eduk.admission.service.domain.valueobject.ConfirmationId;
+import com.eduk.admission.service.domain.valueobject.Money;
 import com.eduk.finance.service.domain.entity.ConfirmationDetail;
 import com.eduk.finance.service.domain.entity.Finance;
 import com.eduk.finance.service.domain.entity.Product;
+import com.eduk.admission.service.domain.valueobject.ConfirmationStatus;
+import com.eduk.admission.service.domain.valueobject.FinanceId;
+import com.eduk.finance.service.domain.dto.FinanceApprovalRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;

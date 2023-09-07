@@ -5,9 +5,7 @@
  */
 package com.eduk.kafka.confirmation.avro.model;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -84,7 +82,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
   private java.util.UUID confirmationId;
   private java.math.BigDecimal price;
   private java.time.Instant createdAt;
-  private com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus paymentConfirmationStatus;
+  private PaymentConfirmationStatus paymentConfirmationStatus;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -103,7 +101,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
    * @param createdAt The new value for createdAt
    * @param paymentConfirmationStatus The new value for paymentConfirmationStatus
    */
-  public PaymentRequestAvroModel(java.util.UUID id, java.util.UUID sagaId, java.util.UUID applicationId, java.util.UUID confirmationId, java.math.BigDecimal price, java.time.Instant createdAt, com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus paymentConfirmationStatus) {
+  public PaymentRequestAvroModel(java.util.UUID id, java.util.UUID sagaId, java.util.UUID applicationId, java.util.UUID confirmationId, java.math.BigDecimal price, java.time.Instant createdAt, PaymentConfirmationStatus paymentConfirmationStatus) {
     this.id = id;
     this.sagaId = sagaId;
     this.applicationId = applicationId;
@@ -162,7 +160,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
     case 3: confirmationId = (java.util.UUID)value$; break;
     case 4: price = (java.math.BigDecimal)value$; break;
     case 5: createdAt = (java.time.Instant)value$; break;
-    case 6: paymentConfirmationStatus = (com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus)value$; break;
+    case 6: paymentConfirmationStatus = (PaymentConfirmationStatus)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -273,7 +271,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
    * Gets the value of the 'paymentConfirmationStatus' field.
    * @return The value of the 'paymentConfirmationStatus' field.
    */
-  public com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus getPaymentConfirmationStatus() {
+  public PaymentConfirmationStatus getPaymentConfirmationStatus() {
     return paymentConfirmationStatus;
   }
 
@@ -282,7 +280,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
    * Sets the value of the 'paymentConfirmationStatus' field.
    * @param value the value to set.
    */
-  public void setPaymentConfirmationStatus(com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus value) {
+  public void setPaymentConfirmationStatus(PaymentConfirmationStatus value) {
     this.paymentConfirmationStatus = value;
   }
 
@@ -290,8 +288,8 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
    * Creates a new PaymentRequestAvroModel RecordBuilder.
    * @return A new PaymentRequestAvroModel RecordBuilder
    */
-  public static com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder newBuilder() {
-    return new com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder();
+  public static PaymentRequestAvroModel.Builder newBuilder() {
+    return new PaymentRequestAvroModel.Builder();
   }
 
   /**
@@ -299,11 +297,11 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
    * @param other The existing builder to copy.
    * @return A new PaymentRequestAvroModel RecordBuilder
    */
-  public static com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder newBuilder(com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder other) {
+  public static PaymentRequestAvroModel.Builder newBuilder(PaymentRequestAvroModel.Builder other) {
     if (other == null) {
-      return new com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder();
+      return new PaymentRequestAvroModel.Builder();
     } else {
-      return new com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder(other);
+      return new PaymentRequestAvroModel.Builder(other);
     }
   }
 
@@ -312,11 +310,11 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
    * @param other The existing instance to copy.
    * @return A new PaymentRequestAvroModel RecordBuilder
    */
-  public static com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder newBuilder(com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel other) {
+  public static PaymentRequestAvroModel.Builder newBuilder(PaymentRequestAvroModel other) {
     if (other == null) {
-      return new com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder();
+      return new PaymentRequestAvroModel.Builder();
     } else {
-      return new com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder(other);
+      return new PaymentRequestAvroModel.Builder(other);
     }
   }
 
@@ -333,7 +331,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
     private java.util.UUID confirmationId;
     private java.math.BigDecimal price;
     private java.time.Instant createdAt;
-    private com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus paymentConfirmationStatus;
+    private PaymentConfirmationStatus paymentConfirmationStatus;
 
     /** Creates a new Builder */
     private Builder() {
@@ -344,7 +342,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder other) {
+    private Builder(PaymentRequestAvroModel.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -380,7 +378,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
      * Creates a Builder by copying an existing PaymentRequestAvroModel instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel other) {
+    private Builder(PaymentRequestAvroModel other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -426,7 +424,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setId(java.util.UUID value) {
+    public PaymentRequestAvroModel.Builder setId(java.util.UUID value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -446,7 +444,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearId() {
+    public PaymentRequestAvroModel.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -466,7 +464,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * @param value The value of 'sagaId'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setSagaId(java.util.UUID value) {
+    public PaymentRequestAvroModel.Builder setSagaId(java.util.UUID value) {
       validate(fields()[1], value);
       this.sagaId = value;
       fieldSetFlags()[1] = true;
@@ -486,7 +484,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Clears the value of the 'sagaId' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearSagaId() {
+    public PaymentRequestAvroModel.Builder clearSagaId() {
       sagaId = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -506,7 +504,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * @param value The value of 'applicationId'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setApplicationId(java.util.UUID value) {
+    public PaymentRequestAvroModel.Builder setApplicationId(java.util.UUID value) {
       validate(fields()[2], value);
       this.applicationId = value;
       fieldSetFlags()[2] = true;
@@ -526,7 +524,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Clears the value of the 'applicationId' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearApplicationId() {
+    public PaymentRequestAvroModel.Builder clearApplicationId() {
       applicationId = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -546,7 +544,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * @param value The value of 'confirmationId'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setConfirmationId(java.util.UUID value) {
+    public PaymentRequestAvroModel.Builder setConfirmationId(java.util.UUID value) {
       validate(fields()[3], value);
       this.confirmationId = value;
       fieldSetFlags()[3] = true;
@@ -566,7 +564,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Clears the value of the 'confirmationId' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearConfirmationId() {
+    public PaymentRequestAvroModel.Builder clearConfirmationId() {
       confirmationId = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -586,7 +584,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * @param value The value of 'price'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setPrice(java.math.BigDecimal value) {
+    public PaymentRequestAvroModel.Builder setPrice(java.math.BigDecimal value) {
       validate(fields()[4], value);
       this.price = value;
       fieldSetFlags()[4] = true;
@@ -606,7 +604,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Clears the value of the 'price' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearPrice() {
+    public PaymentRequestAvroModel.Builder clearPrice() {
       price = null;
       fieldSetFlags()[4] = false;
       return this;
@@ -626,7 +624,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * @param value The value of 'createdAt'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setCreatedAt(java.time.Instant value) {
+    public PaymentRequestAvroModel.Builder setCreatedAt(java.time.Instant value) {
       validate(fields()[5], value);
       this.createdAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
       fieldSetFlags()[5] = true;
@@ -646,7 +644,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Clears the value of the 'createdAt' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearCreatedAt() {
+    public PaymentRequestAvroModel.Builder clearCreatedAt() {
       fieldSetFlags()[5] = false;
       return this;
     }
@@ -655,7 +653,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Gets the value of the 'paymentConfirmationStatus' field.
       * @return The value.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus getPaymentConfirmationStatus() {
+    public PaymentConfirmationStatus getPaymentConfirmationStatus() {
       return paymentConfirmationStatus;
     }
 
@@ -665,7 +663,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * @param value The value of 'paymentConfirmationStatus'.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder setPaymentConfirmationStatus(com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus value) {
+    public PaymentRequestAvroModel.Builder setPaymentConfirmationStatus(PaymentConfirmationStatus value) {
       validate(fields()[6], value);
       this.paymentConfirmationStatus = value;
       fieldSetFlags()[6] = true;
@@ -685,7 +683,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
       * Clears the value of the 'paymentConfirmationStatus' field.
       * @return This builder.
       */
-    public com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel.Builder clearPaymentConfirmationStatus() {
+    public PaymentRequestAvroModel.Builder clearPaymentConfirmationStatus() {
       paymentConfirmationStatus = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -702,7 +700,7 @@ public class PaymentRequestAvroModel extends org.apache.avro.specific.SpecificRe
         record.confirmationId = fieldSetFlags()[3] ? this.confirmationId : (java.util.UUID) defaultValue(fields()[3]);
         record.price = fieldSetFlags()[4] ? this.price : (java.math.BigDecimal) defaultValue(fields()[4]);
         record.createdAt = fieldSetFlags()[5] ? this.createdAt : (java.time.Instant) defaultValue(fields()[5]);
-        record.paymentConfirmationStatus = fieldSetFlags()[6] ? this.paymentConfirmationStatus : (com.eduk.kafka.confirmation.avro.model.PaymentConfirmationStatus) defaultValue(fields()[6]);
+        record.paymentConfirmationStatus = fieldSetFlags()[6] ? this.paymentConfirmationStatus : (PaymentConfirmationStatus) defaultValue(fields()[6]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

@@ -1,11 +1,10 @@
 package com.eduk.payment.service.domain.event;
 
-import com.eduk.domain.event.publisher.DomainEventPublisher;
+import com.eduk.admission.service.domain.event.publisher.DomainEventPublisher;
 import com.eduk.payment.service.domain.entity.Payment;
 
 import java.time.ZonedDateTime;
 import java.util.Collections;
-import java.util.List;
 
 public class PaymentCancelledEvent extends PaymentEvent {
 

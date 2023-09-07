@@ -7,6 +7,7 @@ import com.eduk.paymenet.service.domain.dto.PaymentRequest;
 import com.eduk.payment.service.domain.event.PaymentCancelledEvent;
 import com.eduk.payment.service.domain.event.PaymentCompletedEvent;
 import com.eduk.payment.service.domain.event.PaymentFailedEvent;
+import com.eduk.payment.service.domain.valueobject.PaymentConfirmationStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -67,7 +68,7 @@ public class PaymentMessagingDataMapper {
                 .confirmationId(paymentRequestAvroModel.getConfirmationId().toString())
                 .price(paymentRequestAvroModel.getPrice())
                 .createdAt(paymentRequestAvroModel.getCreatedAt())
-                //.paymentOrderStatus(PaymentOrderStatus.valueOf(paymentRequestAvroModel.getPaymentOrderStatus().name()))
+                .paymentConfirmationStatus(PaymentConfirmationStatus.valueOf(paymentRequestAvroModel.getPaymentConfirmationStatus().name()))
                 .build();
     }
 }

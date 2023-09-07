@@ -1,14 +1,12 @@
 package com.eduk.finance.service.messaging.mapper;
 
-import com.eduk.domain.valueobject.ConfirmationApprovalStatus;
-import com.eduk.domain.valueobject.ProductId;
+import com.eduk.admission.service.domain.valueobject.ProductId;
 import com.eduk.finance.service.domain.dto.FinanceApprovalRequest;
 import com.eduk.finance.service.domain.entity.Product;
 import com.eduk.finance.service.domain.event.ConfirmationApprovedEvent;
 import com.eduk.finance.service.domain.event.ConfirmationRejectedEvent;
 import com.eduk.kafka.confirmation.avro.model.FinanceApprovalRequestAvroModel;
 import com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel;
-import com.eduk.kafka.confirmation.avro.model.FinanceConfirmationStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
