@@ -13,7 +13,7 @@ Advantages of microservices:
 Disadvantages:
 - need to use microservice patterns and orchestration tools for common problems
 
-### Hexagonal (Clean) Architecture** -> Port & Adapter Style
+### Hexagonal (Clean) Architecture -> Port & Adapter Style
 Isolate the domain logic from outside dependencies (dependencies, messaging tools etc.)
 Long lasting applications easily adaptable to new technologies.
 **Dependency inversion** - high level modules should not depend on low level modules. Both should depend on abstraction
@@ -34,13 +34,17 @@ Chain of local ACID transaction.
 - consistency
 - isolation 
 - durability
+
 **Saga with choreography** - Saga based on events - local transactions publish domain events that trigger local transactions in other services.
+
 **Saga with orchestration** - orchestrator coordinates the participants to run local transactions.
 
 ### Outbox
 Help use of local ACID transactions to let consistent (eventual) distributed transactions. It will complete SAGA in a safe and consistent way.
+
 Local ACID transaction + event publishing operation leads to possible consistency problems
-Possible solutions:
+
+**Possible solutions:**
 - event sourcing - use an event log as primary source for your data - but in most of the cases we want to have local acid transactions
 - outbox pattern - we don’t publish events directly but instead we keep them in local outbox table
 - CDC - change data capture - listens transaction logs of the outbox table
