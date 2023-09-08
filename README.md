@@ -67,5 +67,6 @@ Architecture is made with use of Clean Architecture
 
 Implemented as per architecture. Only container module has access to all modules.
 - Business layer (admission-application-service / admission-domain-core) has no dependency
-- ![Admission system dependencies](./docs/images/dependency-admission-system.png "Admission system dependency graph")
+
+![Admission system dependencies](./docs/images/dependency-graph-system.jpg)
 
