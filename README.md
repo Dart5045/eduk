@@ -16,6 +16,7 @@ Disadvantages:
 ### Hexagonal (Clean) Architecture -> Port & Adapter Style
 Isolate the domain logic from outside dependencies (dependencies, messaging tools etc.)
 Long lasting applications easily adaptable to new technologies.
+
 **Dependency inversion** - high level modules should not depend on low level modules. Both should depend on abstraction
 
 ### Domain Driven Design (DDD)
@@ -57,3 +58,14 @@ Develop, manage and scale read and write parts of a system.
 
 ### Kubernetes & Docker
 Kubernetes is a container orchestration system that automates deployment, scaling and management of cloud native applications. It allows to run docker container while reducing operational complexities.
+
+# Admission Microservice architecture
+## Architecture
+Architecture is made with use of Clean Architecture
+
+## Dependency graph
+
+Implemented as per architecture. Only container module has access to all modules.
+- Business layer (admission-application-service / admission-domain-core) has no dependency
+- ![Admission system dependencies](./docs/images/dependency-admission-system.png "Admission system dependency graph")
+
