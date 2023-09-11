@@ -1,6 +1,6 @@
 package com.eduk.finance.service.messaging.mapper;
 
-import com.eduk.admission.service.domain.valueobject.ProductId;
+import com.eduk.domain.valueobject.ProductId;
 import com.eduk.finance.service.domain.dto.FinanceApprovalRequest;
 import com.eduk.finance.service.domain.entity.Product;
 import com.eduk.finance.service.domain.event.ConfirmationApprovedEvent;

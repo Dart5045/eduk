@@ -1,8 +1,8 @@
 package com.eduk.admission.service.domain.ports.output.repository;
 
-import com.eduk.admission.service.domain.valueobject.ConfirmationId;
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.valueobject.TrackingId;
+import com.eduk.domain.valueobject.ConfirmationId;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.valueobject.TrackingId;
 
 import java.util.Optional;
 

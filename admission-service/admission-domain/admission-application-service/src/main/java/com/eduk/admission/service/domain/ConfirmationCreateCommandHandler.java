@@ -1,6 +1,6 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.event.ConfirmationCreatedEvent;
+import com.eduk.domain.event.ConfirmationCreatedEvent;
 import com.eduk.admission.service.domain.ports.output.message.publisher.payment.ConfirmationCreatedPaymentRequestMessagePublisher;
 import com.eduk.admission.service.domain.dto.create.CreateConfirmationCommand;
 import com.eduk.admission.service.domain.dto.create.CreateConfirmationResponse;

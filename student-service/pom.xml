@@ -8,9 +8,15 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>student-service</artifactId>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>student-application</module>
+        <module>student-container</module>
+        <module>student-messaging</module>
+        <module>student-dataaccess</module>
+        <module>student-domain</module>
+    </modules>
     <properties>
     </properties>
     <dependencies>
@@ -27,5 +33,4 @@
             <artifactId>postgresql</artifactId>
         </dependency>
     </dependencies>
-
 </project>

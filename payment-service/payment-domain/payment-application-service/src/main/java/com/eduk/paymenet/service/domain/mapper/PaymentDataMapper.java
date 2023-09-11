@@ -1,8 +1,8 @@
 package com.eduk.paymenet.service.domain.mapper;
 
-import com.eduk.admission.service.domain.valueobject.ApplicationId;
-import com.eduk.admission.service.domain.valueobject.ConfirmationId;
-import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.domain.valueobject.ApplicationId;
+import com.eduk.domain.valueobject.ConfirmationId;
+import com.eduk.domain.valueobject.Money;
 import com.eduk.paymenet.service.domain.dto.PaymentRequest;
 import com.eduk.payment.service.domain.entity.Payment;
 import org.springframework.stereotype.Component;

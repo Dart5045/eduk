@@ -1,13 +1,13 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.event.ConfirmationCreatedEvent;
-import com.eduk.admission.service.domain.event.ConfirmationPaidEvent;
-import com.eduk.admission.service.domain.exception.ConfirmationDomainException;
-import com.eduk.admission.service.domain.valueobject.ConfirmationStatus;
-import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
-import com.eduk.admission.service.domain.event.publisher.DomainEventPublisher;
-import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.event.ConfirmationCreatedEvent;
+import com.eduk.domain.event.ConfirmationPaidEvent;
+import com.eduk.domain.exception.ConfirmationDomainException;
+import com.eduk.domain.valueobject.ConfirmationStatus;
+import com.eduk.domain.event.ConfirmationCancelledEvent;
+import com.eduk.domain.event.publisher.DomainEventPublisher;
+import com.eduk.domain.valueobject.Money;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
@@ -15,7 +15,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 
-import static com.eduk.admission.service.domain.DomainConstants.UTC;
+import static com.eduk.domain.DomainConstants.UTC;
 
 @Slf4j
 public class ConfirmationDomainServiceImpl implements ConfirmationDomainService {

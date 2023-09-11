@@ -1,10 +1,10 @@
 package com.eduk.admission.service.messaging.mapper;
 
 import com.eduk.admission.service.domain.dto.message.FinanceApprovalResponse;
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
-import com.eduk.admission.service.domain.event.ConfirmationCreatedEvent;
-import com.eduk.admission.service.domain.event.ConfirmationPaidEvent;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.event.ConfirmationCancelledEvent;
+import com.eduk.domain.event.ConfirmationCreatedEvent;
+import com.eduk.domain.event.ConfirmationPaidEvent;
 import com.eduk.kafka.confirmation.avro.model.*;
 import com.eduk.admission.service.domain.dto.message.PaymentResponse;
 import org.springframework.stereotype.Component;

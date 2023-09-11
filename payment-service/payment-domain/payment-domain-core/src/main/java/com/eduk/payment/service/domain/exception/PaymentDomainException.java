@@ -1,7 +1,7 @@
 package com.eduk.payment.service.domain.exception;
 
 
-import com.eduk.admission.service.domain.exception.DomainException;
+import com.eduk.domain.exception.DomainException;
 
 public class PaymentDomainException extends DomainException {
 

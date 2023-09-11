@@ -1,6 +1,6 @@
 package com.eduk.finance.service.domain;
 
-import com.eduk.admission.service.domain.valueobject.ConfirmationId;
+import com.eduk.domain.valueobject.ConfirmationId;
 import com.eduk.finance.service.domain.dto.FinanceApprovalRequest;
 import com.eduk.finance.service.domain.entity.Finance;
 import com.eduk.finance.service.domain.event.ConfirmationApprovalEvent;

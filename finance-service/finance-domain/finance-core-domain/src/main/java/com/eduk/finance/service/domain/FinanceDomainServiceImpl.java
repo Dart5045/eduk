@@ -1,18 +1,18 @@
 package com.eduk.finance.service.domain;
 
-import com.eduk.admission.service.domain.valueobject.ConfirmationApprovalStatus;
+import com.eduk.domain.valueobject.ConfirmationApprovalStatus;
 import com.eduk.finance.service.domain.entity.Finance;
 import com.eduk.finance.service.domain.event.ConfirmationApprovalEvent;
 import com.eduk.finance.service.domain.event.ConfirmationApprovedEvent;
 import com.eduk.finance.service.domain.event.ConfirmationRejectedEvent;
-import com.eduk.admission.service.domain.event.publisher.DomainEventPublisher;
+import com.eduk.domain.event.publisher.DomainEventPublisher;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 
-import static com.eduk.admission.service.domain.DomainConstants.UTC;
+import static com.eduk.domain.DomainConstants.UTC;
 
 @Slf4j
 public class FinanceDomainServiceImpl implements FinanceDomainService {

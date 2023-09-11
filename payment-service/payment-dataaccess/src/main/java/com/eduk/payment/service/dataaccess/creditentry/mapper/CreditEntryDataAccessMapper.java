@@ -1,7 +1,7 @@
 package com.eduk.payment.service.dataaccess.creditentry.mapper;
 
-import com.eduk.admission.service.domain.valueobject.ApplicationId;
-import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.domain.valueobject.ApplicationId;
+import com.eduk.domain.valueobject.Money;
 import com.eduk.payment.service.dataaccess.creditentry.entity.CreditEntryEntity;
 import com.eduk.payment.service.domain.entity.CreditEntry;
 import com.eduk.payment.service.domain.valueobject.CreditEntryId;

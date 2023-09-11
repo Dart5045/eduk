@@ -1,9 +1,9 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.entity.Application;
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.event.ConfirmationCreatedEvent;
-import com.eduk.admission.service.domain.exception.ConfirmationDomainException;
+import com.eduk.domain.entity.Application;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.event.ConfirmationCreatedEvent;
+import com.eduk.domain.exception.ConfirmationDomainException;
 import com.eduk.admission.service.domain.ports.output.repository.ApplicationRepository;
 import com.eduk.admission.service.domain.dto.create.CreateConfirmationCommand;
 import com.eduk.admission.service.domain.mapper.ConfirmationDataMapper;

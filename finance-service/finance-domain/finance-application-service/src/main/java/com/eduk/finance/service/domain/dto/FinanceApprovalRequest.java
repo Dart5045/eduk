@@ -1,6 +1,6 @@
 package com.eduk.finance.service.domain.dto;
 import com.eduk.finance.service.domain.entity.Product;
-import com.eduk.admission.service.domain.valueobject.FinanceOrderStatus;
+import com.eduk.domain.valueobject.FinanceOrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package com.eduk.admission.service.domain.dto.message;
 
-import com.eduk.admission.service.domain.valueobject.FinanceApprovalStatus;
+import com.eduk.domain.valueobject.FinanceApprovalStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

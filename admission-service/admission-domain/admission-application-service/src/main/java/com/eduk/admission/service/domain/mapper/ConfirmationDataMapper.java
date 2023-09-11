@@ -1,9 +1,9 @@
 package com.eduk.admission.service.domain.mapper;
 
 
-import com.eduk.admission.service.domain.valueobject.ApplicationId;
-import com.eduk.admission.service.domain.valueobject.Money;
-import com.eduk.admission.service.domain.entity.Confirmation;
+import com.eduk.domain.valueobject.ApplicationId;
+import com.eduk.domain.valueobject.Money;
+import com.eduk.domain.entity.Confirmation;
 import com.eduk.admission.service.domain.dto.create.CreateConfirmationCommand;
 import com.eduk.admission.service.domain.dto.create.CreateConfirmationResponse;
 import com.eduk.admission.service.domain.dto.track.TrackConfirmationResponse;

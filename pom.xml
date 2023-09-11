@@ -67,6 +67,11 @@
         <artifactId>common-application</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>common-dataaccess</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
 
       <!--Eduk finance dependencies-->
@@ -144,6 +149,33 @@
         <artifactId>payment-messaging</artifactId>
         <version>${project.version}</version>
         </dependency>
+
+      <!--Eduk student dependencies-->
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>student-domain-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>student-application-service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>student-application</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>student-dataaccess</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>student-messaging</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
       <!--Eduk infrastructure dependencies-->
       <dependency>

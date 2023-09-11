@@ -1,7 +1,7 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.event.ConfirmationCancelledEvent;
 import com.eduk.admission.service.domain.dto.message.FinanceApprovalResponse;
 import com.eduk.admission.service.domain.ports.input.message.listener.financeapproval.FinanceApprovalResponseMessageListener;
 import lombok.extern.slf4j.Slf4j;

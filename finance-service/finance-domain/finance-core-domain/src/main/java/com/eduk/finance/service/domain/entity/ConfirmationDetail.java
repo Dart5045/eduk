@@ -1,10 +1,10 @@
 package com.eduk.finance.service.domain.entity;
 
 
-import com.eduk.admission.service.domain.entity.BaseEntity;
-import com.eduk.admission.service.domain.valueobject.ConfirmationId;
-import com.eduk.admission.service.domain.valueobject.ConfirmationStatus;
-import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.domain.entity.BaseEntity;
+import com.eduk.domain.valueobject.ConfirmationId;
+import com.eduk.domain.valueobject.ConfirmationStatus;
+import com.eduk.domain.valueobject.Money;
 
 import java.util.List;
 

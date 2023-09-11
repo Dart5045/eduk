@@ -1,10 +1,10 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.event.ConfirmationCreatedEvent;
-import com.eduk.admission.service.domain.event.ConfirmationPaidEvent;
-import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
-import com.eduk.admission.service.domain.event.publisher.DomainEventPublisher;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.event.ConfirmationCreatedEvent;
+import com.eduk.domain.event.ConfirmationPaidEvent;
+import com.eduk.domain.event.ConfirmationCancelledEvent;
+import com.eduk.domain.event.publisher.DomainEventPublisher;
 
 import java.util.List;
 

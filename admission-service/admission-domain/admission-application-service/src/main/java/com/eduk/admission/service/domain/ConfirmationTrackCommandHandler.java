@@ -1,8 +1,8 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.exception.ConfirmationNotFoundException;
-import com.eduk.admission.service.domain.valueobject.TrackingId;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.exception.ConfirmationNotFoundException;
+import com.eduk.domain.valueobject.TrackingId;
 import com.eduk.admission.service.domain.dto.track.TrackConfirmationQuery;
 import com.eduk.admission.service.domain.dto.track.TrackConfirmationResponse;
 import com.eduk.admission.service.domain.mapper.ConfirmationDataMapper;

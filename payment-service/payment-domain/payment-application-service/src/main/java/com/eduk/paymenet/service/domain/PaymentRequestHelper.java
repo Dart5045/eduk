@@ -1,6 +1,6 @@
 package com.eduk.paymenet.service.domain;
 
-import com.eduk.admission.service.domain.valueobject.ApplicationId;
+import com.eduk.domain.valueobject.ApplicationId;
 import com.eduk.paymenet.service.domain.dto.PaymentRequest;
 import com.eduk.paymenet.service.domain.exception.PaymentApplicationServiceException;
 import com.eduk.paymenet.service.domain.mapper.PaymentDataMapper;

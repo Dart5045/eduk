@@ -1,8 +1,8 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.valueobject.ConfirmationId;
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.exception.ConfirmationNotFoundException;
+import com.eduk.domain.valueobject.ConfirmationId;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.exception.ConfirmationNotFoundException;
 import com.eduk.admission.service.domain.ports.output.repository.ConfirmationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

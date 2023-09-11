@@ -1,8 +1,8 @@
 package com.eduk.payment.service.dataaccess.payment.mapper;
 
-import com.eduk.admission.service.domain.valueobject.ApplicationId;
-import com.eduk.admission.service.domain.valueobject.ConfirmationId;
-import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.domain.valueobject.ApplicationId;
+import com.eduk.domain.valueobject.ConfirmationId;
+import com.eduk.domain.valueobject.Money;
 import com.eduk.payment.service.dataaccess.payment.entity.PaymentEntity;
 import com.eduk.payment.service.domain.valueobject.PaymentId;
 import com.eduk.payment.service.domain.entity.Payment;

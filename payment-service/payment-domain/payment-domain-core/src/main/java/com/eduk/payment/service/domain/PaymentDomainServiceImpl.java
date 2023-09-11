@@ -1,14 +1,14 @@
 package com.eduk.payment.service.domain;
 
-import com.eduk.admission.service.domain.DomainConstants;
-import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.domain.DomainConstants;
+import com.eduk.domain.valueobject.Money;
 import com.eduk.payment.service.domain.entity.CreditEntry;
 import com.eduk.payment.service.domain.entity.CreditHistory;
 import com.eduk.payment.service.domain.event.PaymentFailedEvent;
 import com.eduk.payment.service.domain.valueobject.CreditHistoryId;
 import com.eduk.payment.service.domain.valueobject.TransactionType;
-import com.eduk.admission.service.domain.event.publisher.DomainEventPublisher;
-import com.eduk.admission.service.domain.valueobject.PaymentStatus;
+import com.eduk.domain.event.publisher.DomainEventPublisher;
+import com.eduk.domain.valueobject.PaymentStatus;
 import com.eduk.payment.service.domain.entity.Payment;
 import com.eduk.payment.service.domain.event.PaymentCancelledEvent;
 import com.eduk.payment.service.domain.event.PaymentCompletedEvent;

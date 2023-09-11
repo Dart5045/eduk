@@ -1,6 +1,6 @@
 package com.eduk.payment.service.domain.event;
 
-import com.eduk.admission.service.domain.event.DomainEvent;
+import com.eduk.domain.event.DomainEvent;
 import com.eduk.payment.service.domain.entity.Payment;
 
 import java.time.ZonedDateTime;

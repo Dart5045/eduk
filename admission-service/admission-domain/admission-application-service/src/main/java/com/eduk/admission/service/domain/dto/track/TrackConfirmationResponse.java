@@ -1,6 +1,6 @@
 package com.eduk.admission.service.domain.dto.track;
 
-import com.eduk.admission.service.domain.valueobject.ConfirmationStatus;
+import com.eduk.domain.valueobject.ConfirmationStatus;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

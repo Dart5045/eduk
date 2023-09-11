@@ -1,0 +1,39 @@
+{
+  "namespace": "com.eduk.kafka.student.avro.model",
+  "type": "record",
+  "name": "StudentAvroModel",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "username",
+      "type": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "firstName",
+      "type": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "lastName",
+      "type": {
+        "type": "string"
+      }
+    }
+    ,
+    {
+      "name": "email",
+      "type": {
+        "type": "string"
+      }
+    }
+  ]
+}

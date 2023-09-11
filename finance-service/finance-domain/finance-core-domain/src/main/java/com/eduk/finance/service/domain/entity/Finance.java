@@ -1,9 +1,9 @@
 package com.eduk.finance.service.domain.entity;
-import com.eduk.admission.service.domain.entity.AggregateRoot;
-import com.eduk.admission.service.domain.valueobject.ConfirmationApprovalStatus;
-import com.eduk.admission.service.domain.valueobject.ConfirmationStatus;
-import com.eduk.admission.service.domain.valueobject.FinanceId;
-import com.eduk.admission.service.domain.valueobject.Money;
+import com.eduk.domain.entity.AggregateRoot;
+import com.eduk.domain.valueobject.ConfirmationApprovalStatus;
+import com.eduk.domain.valueobject.ConfirmationStatus;
+import com.eduk.domain.valueobject.FinanceId;
+import com.eduk.domain.valueobject.Money;
 import com.eduk.finance.service.domain.valueobject.ConfirmationApprovalId;
 
 import java.util.List;

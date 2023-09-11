@@ -1,8 +1,8 @@
 package com.eduk.finance.service.domain.entity;
 
-import com.eduk.admission.service.domain.entity.BaseEntity;
-import com.eduk.admission.service.domain.valueobject.Money;
-import com.eduk.admission.service.domain.valueobject.ProductId;
+import com.eduk.domain.entity.BaseEntity;
+import com.eduk.domain.valueobject.Money;
+import com.eduk.domain.valueobject.ProductId;
 
 public class Product extends BaseEntity<ProductId> {
     private String name;

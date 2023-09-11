@@ -1,8 +1,8 @@
 package com.eduk.finance.service.domain.event;
 
 import com.eduk.finance.service.domain.entity.ConfirmationApproval;
-import com.eduk.admission.service.domain.event.publisher.DomainEventPublisher;
-import com.eduk.admission.service.domain.valueobject.FinanceId;
+import com.eduk.domain.event.publisher.DomainEventPublisher;
+import com.eduk.domain.valueobject.FinanceId;
 
 import java.time.ZonedDateTime;
 import java.util.List;

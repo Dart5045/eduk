@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8084
 logging:
   level:
     com.eduk: DEBUG
@@ -8,14 +8,8 @@ lombok:
   anyConstructor:
     addConstructorProperties: true
 
-admission-service:
-  payment-request-topic-name: payment-request
-  payment-response-topic-name: payment-response
-  finance-approval-request-topic-name: finance-approval-request
-  finance-approval-response-topic-name: finance-approval-response
-  application-topic-name: application
-  outbox-scheduler-fixed-rate: 10000
-  outbox-scheduler-initial-delay: 10000
+student-service:
+  student-topic-name: student
 
 spring:
   jpa:
@@ -26,7 +20,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=admission&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=student&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
     username: postgres
     password: password
     driver-class-name: org.postgresql.Driver
@@ -56,23 +50,3 @@ kafka-producer-config:
   linger-ms: 5
   request-timeout-ms: 60000
   retry-count: 5
-
-kafka-consumer-config:
-  key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-  payment-consumer-group-id: payment-topic-consumer
-  finance-approval-consumer-group-id: finance-approval-topic-consumer
-  confirmation-group-id: confirmation-topic-consumer
-  auto-offset-reset: earliest
-  specific-avro-reader-key: specific.avro.reader
-  specific-avro-reader: true
-  batch-listener: true
-  auto-startup: true
-  concurrency-level: 3
-  session-timeout-ms: 10000
-  heartbeat-interval-ms: 3000
-  max-poll-interval-ms: 300000
-  max-poll-records: 500
-  max-partition-fetch-bytes-default: 1048576
-  max-partition-fetch-bytes-boost-factor: 1
-  poll-timeout-ms: 150

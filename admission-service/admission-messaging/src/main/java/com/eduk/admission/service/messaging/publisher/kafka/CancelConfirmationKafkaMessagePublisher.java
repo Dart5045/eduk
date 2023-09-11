@@ -1,6 +1,6 @@
 package com.eduk.admission.service.messaging.publisher.kafka;
 
-import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
+import com.eduk.domain.event.ConfirmationCancelledEvent;
 import com.eduk.kafka.producer.KafkaMessageHelper;
 import com.eduk.kafka.producer.service.KafkaProducer;
 import com.eduk.admission.service.messaging.mapper.ConfirmationMessagingDataMapper;

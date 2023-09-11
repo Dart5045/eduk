@@ -1,8 +1,8 @@
 package com.eduk.admission.service.domain;
 
-import com.eduk.admission.service.domain.event.EmptyEvent;
-import com.eduk.admission.service.domain.entity.Confirmation;
-import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
+import com.eduk.domain.event.EmptyEvent;
+import com.eduk.domain.entity.Confirmation;
+import com.eduk.domain.event.ConfirmationCancelledEvent;
 import com.eduk.admission.service.domain.dto.message.FinanceApprovalResponse;
 import com.eduk.admission.service.domain.ports.output.message.publisher.payment.ConfirmationCancelledPaymentRequestMessagePublisher;
 import com.eduk.saga.SagaStep;
