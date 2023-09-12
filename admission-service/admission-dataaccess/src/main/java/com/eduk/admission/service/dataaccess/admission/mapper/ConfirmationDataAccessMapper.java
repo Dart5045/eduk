@@ -1,8 +1,8 @@
 package com.eduk.admission.service.dataaccess.admission.mapper;
 
 import com.eduk.admission.service.dataaccess.admission.entity.ConfirmationEntity;
-import com.eduk.domain.entity.Confirmation;
-import com.eduk.domain.valueobject.TrackingId;
+import com.eduk.admission.service.domain.Confirmation;
+import com.eduk.admission.service.domain.valueobject.TrackingId;
 import com.eduk.domain.valueobject.ApplicationId;
 import com.eduk.domain.valueobject.Money;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package com.eduk.admission.service.dataaccess.admission.entity;
 
 
-import com.eduk.domain.valueobject.ConfirmationStatus;
+import com.eduk.admission.service.domain.valueobject.ConfirmationStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

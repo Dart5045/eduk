@@ -1,6 +1,6 @@
 package com.eduk.admission.service.messaging.listener.kafka;
 
-import com.eduk.domain.ports.input.message.listener.student.StudentMessageListener;
+import com.eduk.admission.service.domain.ports.input.message.listener.student.StudentMessageListener;
 import com.eduk.admission.service.messaging.mapper.ConfirmationMessagingDataMapper;
 import com.eduk.kafka.consumer.KafkaConsumer;
 import com.eduk.kafka.student.avro.model.StudentAvroModel;

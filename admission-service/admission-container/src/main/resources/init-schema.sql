@@ -14,3 +14,13 @@ CREATE TABLE "admission".terms
     period character varying COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT term_pkey PRIMARY KEY (id)
 );
+
+DROP TABLE IF EXISTS "admission".customers CASCADE;
+CREATE TABLE admission.students
+(
+    id uuid NOT NULL,
+    email character varying COLLATE pg_catalog."default" NOT NULL,
+    first_name character varying COLLATE pg_catalog."default" NOT NULL,
+    last_name character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT students_pkey PRIMARY KEY (id)
+);

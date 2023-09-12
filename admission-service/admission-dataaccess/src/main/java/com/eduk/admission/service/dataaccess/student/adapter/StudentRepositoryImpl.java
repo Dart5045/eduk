@@ -2,8 +2,8 @@ package com.eduk.admission.service.dataaccess.student.adapter;
 
 import com.eduk.admission.service.dataaccess.student.mapper.StudentDataAccessMapper;
 import com.eduk.admission.service.dataaccess.student.repository.StudentJpaRepository;
-import com.eduk.domain.entity.Student;
-import com.eduk.domain.ports.output.repository.StudentRepository;
+import com.eduk.admission.service.domain.Student;
+import com.eduk.admission.service.domain.ports.output.repository.StudentRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

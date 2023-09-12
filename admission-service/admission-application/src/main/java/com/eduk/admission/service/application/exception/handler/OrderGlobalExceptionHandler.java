@@ -1,9 +1,9 @@
 package com.eduk.admission.service.application.exception.handler;
 
-import com.eduk.domain.exception.ConfirmationDomainException;
+import com.eduk.admission.service.domain.exception.ConfirmationDomainException;
 import com.eduk.application.handler.ErrorDTO;
 import com.eduk.application.handler.GlobalExceptionHandler;
-import com.eduk.domain.exception.ConfirmationNotFoundException;
+import com.eduk.admission.service.domain.exception.ConfirmationNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

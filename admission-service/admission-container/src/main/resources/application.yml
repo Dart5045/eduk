@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8181
 logging:
   level:
     com.eduk: DEBUG
@@ -11,10 +11,13 @@ lombok:
 student-service:
   payment-request-topic-name: payment-request
   payment-response-topic-name: payment-response
+  finance-approval-request-topic-name: finance-request
+  finance-approval-response-topic-name: finance-response
   student-topic-name: student
 
 
 spring:
+
   jpa:
     open-in-view: false
     show-sql: true
@@ -58,7 +61,7 @@ kafka-producer-config:
     key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
     payment-consumer-group-id: payment-topic-consumer
-    restaurant-approval-consumer-group-id: finance-approval-topic-consumer
+    finance-approval-consumer-group-id: finance-approval-topic-consumer
     student-group-id: student-topic-consumer
     auto-offset-reset: earliest
     specific-avro-reader-key: specific.avro.reader

@@ -1,7 +1,7 @@
 package com.eduk.admission.service.dataaccess.student.mapper;
 
 import com.eduk.admission.service.dataaccess.student.entity.StudentEntity;
-import com.eduk.domain.entity.Student;
+import com.eduk.admission.service.domain.Student;
 import com.eduk.domain.valueobject.StudentId;
 import org.springframework.stereotype.Component;
 

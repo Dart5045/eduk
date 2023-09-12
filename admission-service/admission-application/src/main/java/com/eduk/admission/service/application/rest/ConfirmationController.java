@@ -1,10 +1,10 @@
 package com.eduk.admission.service.application.rest;
 
-import com.eduk.domain.dto.create.CreateConfirmationCommand;
-import com.eduk.domain.dto.create.CreateConfirmationResponse;
-import com.eduk.domain.dto.track.TrackConfirmationQuery;
-import com.eduk.domain.dto.track.TrackConfirmationResponse;
-import com.eduk.domain.ports.input.service.ConfirmationApplicationService;
+import com.eduk.admission.service.domain.dto.create.CreateConfirmationCommand;
+import com.eduk.admission.service.domain.dto.create.CreateConfirmationResponse;
+import com.eduk.admission.service.domain.dto.track.TrackConfirmationQuery;
+import com.eduk.admission.service.domain.dto.track.TrackConfirmationResponse;
+import com.eduk.admission.service.domain.ports.input.service.ConfirmationApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

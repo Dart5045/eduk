@@ -3,7 +3,7 @@ package com.eduk.admission.service.messaging.listener.kafka;
 import com.eduk.admission.service.messaging.mapper.ConfirmationMessagingDataMapper;
 import com.eduk.kafka.confirmation.avro.model.PaymentResponseAvroModel;
 import com.eduk.kafka.confirmation.avro.model.PaymentStatus;
-import com.eduk.domain.ports.input.message.listener.payment.PaymentResponseMessageListener;
+import com.eduk.admission.service.domain.ports.input.message.listener.payment.PaymentResponseMessageListener;
 import com.eduk.kafka.consumer.KafkaConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;

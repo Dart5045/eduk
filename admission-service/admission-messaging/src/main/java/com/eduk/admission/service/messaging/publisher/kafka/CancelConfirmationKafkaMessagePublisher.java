@@ -1,12 +1,12 @@
 package com.eduk.admission.service.messaging.publisher.kafka;
 
-import com.eduk.domain.event.ConfirmationCancelledEvent;
+import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
 import com.eduk.kafka.producer.KafkaMessageHelper;
 import com.eduk.kafka.producer.service.KafkaProducer;
 import com.eduk.admission.service.messaging.mapper.ConfirmationMessagingDataMapper;
-import com.eduk.domain.config.ConfirmationServiceConfigData;
+import com.eduk.admission.service.domain.config.ConfirmationServiceConfigData;
 import com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel;
-import com.eduk.domain.ports.output.message.publisher.payment.ConfirmationCancelledPaymentRequestMessagePublisher;
+import com.eduk.admission.service.domain.ports.output.message.publisher.payment.ConfirmationCancelledPaymentRequestMessagePublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

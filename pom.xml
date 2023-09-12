@@ -15,6 +15,7 @@
     <module>payment-service</module>
     <module>infrastructure</module>
     <module>student-service</module>
+      <module>common/common-messaging</module>
   </modules>
   <name>eduk</name>
   <url>http://www.eduk.com</url>

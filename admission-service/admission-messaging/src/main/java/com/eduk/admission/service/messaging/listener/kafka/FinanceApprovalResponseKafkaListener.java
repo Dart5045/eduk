@@ -1,6 +1,6 @@
 package com.eduk.admission.service.messaging.listener.kafka;
 
-import com.eduk.domain.ports.input.message.listener.financeapproval.FinanceApprovalResponseMessageListener;
+import com.eduk.admission.service.domain.ports.input.message.listener.financeapproval.FinanceApprovalResponseMessageListener;
 import com.eduk.admission.service.messaging.mapper.ConfirmationMessagingDataMapper;
 import com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus;
 import com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static com.eduk.domain.entity.Confirmation.FAILURE_MESSAGE_DELIMITER;
+import static com.eduk.admission.service.domain.Confirmation.FAILURE_MESSAGE_DELIMITER;
 
 
 @Slf4j
