@@ -1,12 +1,14 @@
 package com.eduk.admission.service.messaging.mapper;
 
-import com.eduk.admission.service.domain.dto.message.FinanceApprovalResponse;
+import com.eduk.domain.dto.message.FinanceApprovalResponse;
+import com.eduk.domain.dto.message.StudentModel;
 import com.eduk.domain.entity.Confirmation;
 import com.eduk.domain.event.ConfirmationCancelledEvent;
 import com.eduk.domain.event.ConfirmationCreatedEvent;
 import com.eduk.domain.event.ConfirmationPaidEvent;
 import com.eduk.kafka.confirmation.avro.model.*;
-import com.eduk.admission.service.domain.dto.message.PaymentResponse;
+import com.eduk.domain.dto.message.PaymentResponse;
+import com.eduk.kafka.student.avro.model.StudentAvroModel;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -91,6 +93,14 @@ public class ConfirmationMessagingDataMapper {
                         financeApprovalResponseAvroModel.getConfirmationApprovalStatus().name()))
                 */
                 .failureMessages(financeApprovalResponseAvroModel.getFailureMessages())
+                .build();
+    }
+    public StudentModel studentAvroModeltoStudentModel(StudentAvroModel studentAvroModel) {
+        return StudentModel.builder()
+                .id(studentAvroModel.getId().toString())
+                .email(studentAvroModel.getEmail())
+                .firstName(studentAvroModel.getFirstName())
+                .lastName(studentAvroModel.getLastName())
                 .build();
     }
 }

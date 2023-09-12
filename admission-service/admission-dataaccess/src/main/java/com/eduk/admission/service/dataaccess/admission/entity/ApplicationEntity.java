@@ -1,5 +1,6 @@
 package com.eduk.admission.service.dataaccess.admission.entity;
 
+import com.eduk.admission.service.dataaccess.student.entity.StudentEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,7 +21,7 @@ public class ApplicationEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "STUDENT_ID")
-    private  StudentEntity student;
+    private StudentEntity student;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private TermEntity termRequested;

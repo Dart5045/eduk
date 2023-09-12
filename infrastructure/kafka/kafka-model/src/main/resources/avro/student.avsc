@@ -11,12 +11,6 @@
       }
     },
     {
-      "name": "username",
-      "type": {
-        "type": "string"
-      }
-    },
-    {
       "name": "firstName",
       "type": {
         "type": "string"

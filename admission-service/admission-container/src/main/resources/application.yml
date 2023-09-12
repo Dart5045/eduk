@@ -9,7 +9,10 @@ lombok:
     addConstructorProperties: true
 
 student-service:
+  payment-request-topic-name: payment-request
+  payment-response-topic-name: payment-response
   student-topic-name: student
+
 
 spring:
   jpa:
@@ -50,3 +53,23 @@ kafka-producer-config:
   linger-ms: 5
   request-timeout-ms: 60000
   retry-count: 5
+
+  kafka-consumer-config:
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    payment-consumer-group-id: payment-topic-consumer
+    restaurant-approval-consumer-group-id: finance-approval-topic-consumer
+    student-group-id: student-topic-consumer
+    auto-offset-reset: earliest
+    specific-avro-reader-key: specific.avro.reader
+    specific-avro-reader: true
+    batch-listener: true
+    auto-startup: true
+    concurrency-level: 3
+    session-timeout-ms: 10000
+    heartbeat-interval-ms: 3000
+    max-poll-interval-ms: 300000
+    max-poll-records: 500
+    max-partition-fetch-bytes-default: 1048576
+    max-partition-fetch-bytes-boost-factor: 1
+    poll-timeout-ms: 150

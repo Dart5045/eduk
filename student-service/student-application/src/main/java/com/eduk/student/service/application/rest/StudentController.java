@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/app/v1/students", produces = "application/vnd.api.v1+json")
+@RequestMapping(value = "/api/v1/students", produces = "application/vnd.api.v1+json")
 public class StudentController {
 
     private final StudentApplicationService studentApplicationService;

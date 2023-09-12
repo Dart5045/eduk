@@ -4,19 +4,21 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Getter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class CreateStudentCommand {
     @NotNull
-    private final UUID studentId;
+    private  UUID studentId;
     @NotNull
-    private final String firstName;
+    private  String firstName;
     @NotNull
-    private final String lastName;
+    private  String lastName;
     @NotNull
-    private final String email;
+    private  String email;
 }

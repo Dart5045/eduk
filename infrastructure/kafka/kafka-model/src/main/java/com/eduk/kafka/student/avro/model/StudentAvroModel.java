@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 231943673537082250L;
+  private static final long serialVersionUID = 1292684757775451665L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"StudentAvroModel\",\"namespace\":\"com.eduk.kafka.student.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"username\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"email\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"StudentAvroModel\",\"namespace\":\"com.eduk.kafka.student.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"email\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -77,7 +77,6 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
   }
 
   private java.util.UUID id;
-  private java.lang.String username;
   private java.lang.String firstName;
   private java.lang.String lastName;
   private java.lang.String email;
@@ -92,14 +91,12 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param username The new value for username
    * @param firstName The new value for firstName
    * @param lastName The new value for lastName
    * @param email The new value for email
    */
-  public StudentAvroModel(java.util.UUID id, java.lang.String username, java.lang.String firstName, java.lang.String lastName, java.lang.String email) {
+  public StudentAvroModel(java.util.UUID id, java.lang.String firstName, java.lang.String lastName, java.lang.String email) {
     this.id = id;
-    this.username = username;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -116,10 +113,9 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return username;
-    case 2: return firstName;
-    case 3: return lastName;
-    case 4: return email;
+    case 1: return firstName;
+    case 2: return lastName;
+    case 3: return email;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -127,7 +123,6 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
       new org.apache.avro.Conversions.UUIDConversion(),
-      null,
       null,
       null,
       null,
@@ -145,10 +140,9 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (java.util.UUID)value$; break;
-    case 1: username = value$ != null ? value$.toString() : null; break;
-    case 2: firstName = value$ != null ? value$.toString() : null; break;
-    case 3: lastName = value$ != null ? value$.toString() : null; break;
-    case 4: email = value$ != null ? value$.toString() : null; break;
+    case 1: firstName = value$ != null ? value$.toString() : null; break;
+    case 2: lastName = value$ != null ? value$.toString() : null; break;
+    case 3: email = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -168,23 +162,6 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
    */
   public void setId(java.util.UUID value) {
     this.id = value;
-  }
-
-  /**
-   * Gets the value of the 'username' field.
-   * @return The value of the 'username' field.
-   */
-  public java.lang.String getUsername() {
-    return username;
-  }
-
-
-  /**
-   * Sets the value of the 'username' field.
-   * @param value the value to set.
-   */
-  public void setUsername(java.lang.String value) {
-    this.username = value;
   }
 
   /**
@@ -280,7 +257,6 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
     implements org.apache.avro.data.RecordBuilder<StudentAvroModel> {
 
     private java.util.UUID id;
-    private java.lang.String username;
     private java.lang.String firstName;
     private java.lang.String lastName;
     private java.lang.String email;
@@ -300,21 +276,17 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.username)) {
-        this.username = data().deepCopy(fields()[1].schema(), other.username);
+      if (isValidValue(fields()[1], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[1].schema(), other.firstName);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.firstName)) {
-        this.firstName = data().deepCopy(fields()[2].schema(), other.firstName);
+      if (isValidValue(fields()[2], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.lastName)) {
-        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+      if (isValidValue(fields()[3], other.email)) {
+        this.email = data().deepCopy(fields()[3].schema(), other.email);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
-      }
-      if (isValidValue(fields()[4], other.email)) {
-        this.email = data().deepCopy(fields()[4].schema(), other.email);
-        fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
     }
 
@@ -328,21 +300,17 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.username)) {
-        this.username = data().deepCopy(fields()[1].schema(), other.username);
+      if (isValidValue(fields()[1], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[1].schema(), other.firstName);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.firstName)) {
-        this.firstName = data().deepCopy(fields()[2].schema(), other.firstName);
+      if (isValidValue(fields()[2], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.lastName)) {
-        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+      if (isValidValue(fields()[3], other.email)) {
+        this.email = data().deepCopy(fields()[3].schema(), other.email);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.email)) {
-        this.email = data().deepCopy(fields()[4].schema(), other.email);
-        fieldSetFlags()[4] = true;
       }
     }
 
@@ -387,46 +355,6 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
     }
 
     /**
-      * Gets the value of the 'username' field.
-      * @return The value.
-      */
-    public java.lang.String getUsername() {
-      return username;
-    }
-
-
-    /**
-      * Sets the value of the 'username' field.
-      * @param value The value of 'username'.
-      * @return This builder.
-      */
-    public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder setUsername(java.lang.String value) {
-      validate(fields()[1], value);
-      this.username = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'username' field has been set.
-      * @return True if the 'username' field has been set, false otherwise.
-      */
-    public boolean hasUsername() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'username' field.
-      * @return This builder.
-      */
-    public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder clearUsername() {
-      username = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'firstName' field.
       * @return The value.
       */
@@ -441,9 +369,9 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       * @return This builder.
       */
     public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder setFirstName(java.lang.String value) {
-      validate(fields()[2], value);
+      validate(fields()[1], value);
       this.firstName = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -452,7 +380,7 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       * @return True if the 'firstName' field has been set, false otherwise.
       */
     public boolean hasFirstName() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[1];
     }
 
 
@@ -462,7 +390,7 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       */
     public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder clearFirstName() {
       firstName = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -481,9 +409,9 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       * @return This builder.
       */
     public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder setLastName(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[2], value);
       this.lastName = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -492,7 +420,7 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       * @return True if the 'lastName' field has been set, false otherwise.
       */
     public boolean hasLastName() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[2];
     }
 
 
@@ -502,7 +430,7 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       */
     public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder clearLastName() {
       lastName = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -521,9 +449,9 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       * @return This builder.
       */
     public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder setEmail(java.lang.String value) {
-      validate(fields()[4], value);
+      validate(fields()[3], value);
       this.email = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -532,7 +460,7 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       * @return True if the 'email' field has been set, false otherwise.
       */
     public boolean hasEmail() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[3];
     }
 
 
@@ -542,7 +470,7 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       */
     public com.eduk.kafka.student.avro.model.StudentAvroModel.Builder clearEmail() {
       email = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -552,10 +480,9 @@ public class StudentAvroModel extends org.apache.avro.specific.SpecificRecordBas
       try {
         StudentAvroModel record = new StudentAvroModel();
         record.id = fieldSetFlags()[0] ? this.id : (java.util.UUID) defaultValue(fields()[0]);
-        record.username = fieldSetFlags()[1] ? this.username : (java.lang.String) defaultValue(fields()[1]);
-        record.firstName = fieldSetFlags()[2] ? this.firstName : (java.lang.String) defaultValue(fields()[2]);
-        record.lastName = fieldSetFlags()[3] ? this.lastName : (java.lang.String) defaultValue(fields()[3]);
-        record.email = fieldSetFlags()[4] ? this.email : (java.lang.String) defaultValue(fields()[4]);
+        record.firstName = fieldSetFlags()[1] ? this.firstName : (java.lang.String) defaultValue(fields()[1]);
+        record.lastName = fieldSetFlags()[2] ? this.lastName : (java.lang.String) defaultValue(fields()[2]);
+        record.email = fieldSetFlags()[3] ? this.email : (java.lang.String) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

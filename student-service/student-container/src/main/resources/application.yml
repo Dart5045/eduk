@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8184
 logging:
   level:
     com.eduk: DEBUG
@@ -8,14 +8,9 @@ lombok:
   anyConstructor:
     addConstructorProperties: true
 
-admission-service:
-  payment-request-topic-name: payment-request
-  payment-response-topic-name: payment-response
-  finance-approval-request-topic-name: finance-approval-request
-  finance-approval-response-topic-name: finance-approval-response
-  application-topic-name: application
-  outbox-scheduler-fixed-rate: 10000
-  outbox-scheduler-initial-delay: 10000
+
+student-service:
+  student-topic-name: student
 
 spring:
   jpa:
@@ -35,8 +30,6 @@ spring:
       platform: postgres
       schema-locations:
         - classpath:init-schema.sql
-      data-locations:
-        - classpath:init-data.sql
       mode: ALWAYS
 
 kafka-config:

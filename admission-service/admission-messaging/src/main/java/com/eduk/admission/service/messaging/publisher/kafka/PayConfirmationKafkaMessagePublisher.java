@@ -1,8 +1,8 @@
 package com.eduk.admission.service.messaging.publisher.kafka;
 
-import com.eduk.admission.service.domain.config.ConfirmationServiceConfigData;
+import com.eduk.domain.config.ConfirmationServiceConfigData;
 import com.eduk.domain.event.ConfirmationPaidEvent;
-import com.eduk.admission.service.domain.ports.output.message.publisher.financeapproval.ConfirmationPaidFinanceRequestMessagePublisher;
+import com.eduk.domain.ports.output.message.publisher.financeapproval.ConfirmationPaidFinanceRequestMessagePublisher;
 import com.eduk.admission.service.messaging.mapper.ConfirmationMessagingDataMapper;
 import com.eduk.kafka.confirmation.avro.model.FinanceApprovalRequestAvroModel;
 import com.eduk.kafka.producer.KafkaMessageHelper;

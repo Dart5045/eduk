@@ -23,6 +23,7 @@ public class Student extends AggregateRoot<StudentId> {
     }
 
     public Student(StudentId studentId, String firstName, String lastName, String email) {
+        super.setId(studentId);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

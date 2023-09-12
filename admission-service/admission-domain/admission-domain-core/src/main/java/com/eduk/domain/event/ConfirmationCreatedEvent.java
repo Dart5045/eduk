@@ -17,10 +17,6 @@ public class ConfirmationCreatedEvent extends ConfirmationEvent {
         this.confirmationCreatedEventDomainEventPublisher = orderCreatedEventDomainEventPublisher;
     }
 
-    @Override
-    public void fire() {
-        confirmationCreatedEventDomainEventPublisher.publish(this);
-    }
 }
 
 

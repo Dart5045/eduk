@@ -39,7 +39,9 @@ public class StudentCreatedEventKafkaPublisher implements StudentMessagePublishe
             StudentAvroModel studentAvroModel = studentMessagingDataMapper
                     .paymentResponseAvroModelToPaymentResponse(studentCreatedEvent);
 
-            kafkaProducer.send(studentServiceConfigData.getStudentTopicName(), studentAvroModel.getId().toString(),
+            kafkaProducer.send(
+                    studentServiceConfigData.getStudentTopicName(),
+                    studentAvroModel.getId().toString(),
                     studentAvroModel,
                     getCallback(studentServiceConfigData.getStudentTopicName(), studentAvroModel));
 

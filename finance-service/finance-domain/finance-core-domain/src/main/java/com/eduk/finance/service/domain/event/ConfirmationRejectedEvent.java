@@ -18,9 +18,4 @@ public class ConfirmationRejectedEvent extends ConfirmationApprovalEvent {
         this.confirmationRejectedEventDomainEventPublisher = confirmationRejectedEventDomainEventPublisher;
     }
 
-    @Override
-    public void fire() {
-        confirmationRejectedEventDomainEventPublisher.publish(this);
-    }
-
 }

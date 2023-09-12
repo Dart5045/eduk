@@ -6,7 +6,7 @@ import com.eduk.admission.service.dataaccess.admission.repository.ConfirmationJp
 import com.eduk.domain.entity.Confirmation;
 import com.eduk.domain.valueobject.TrackingId;
 import com.eduk.domain.valueobject.ConfirmationId;
-import com.eduk.admission.service.domain.ports.output.repository.ConfirmationRepository;
+import com.eduk.domain.ports.output.repository.ConfirmationRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

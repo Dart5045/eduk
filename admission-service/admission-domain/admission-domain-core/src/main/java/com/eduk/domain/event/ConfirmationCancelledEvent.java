@@ -17,9 +17,4 @@ public class ConfirmationCancelledEvent extends ConfirmationEvent {
         super(confirmation, createdAt);
         this.confirmationCancelledEventDomainEventPublisher = confirmationCancelledEventDomainEventPublisher;
     }
-
-    @Override
-    public void fire() {
-        confirmationCancelledEventDomainEventPublisher.publish(this);
-    }
 }

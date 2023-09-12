@@ -16,10 +16,4 @@ public class ConfirmationPaidEvent extends ConfirmationEvent {
         super(confirmation, createdAt);
         this.confirmationPaidEventDomainEventPublisher = confirmationPaidEventDomainEventPublisher;
     }
-
-    @Override
-    public void fire() {
-        confirmationPaidEventDomainEventPublisher.publish(this);
-    }
-
 }

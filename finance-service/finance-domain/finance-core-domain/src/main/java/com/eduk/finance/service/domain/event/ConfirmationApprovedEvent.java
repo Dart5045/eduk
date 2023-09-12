@@ -20,8 +20,4 @@ public class ConfirmationApprovedEvent extends ConfirmationApprovalEvent {
         this.confirmationApprovedEventDomainEventPublisher = confirmationApprovedEventDomainEventPublisher;
     }
 
-    @Override
-    public void fire() {
-        confirmationApprovedEventDomainEventPublisher.publish(this);
-    }
-}
+ }

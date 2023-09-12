@@ -21,6 +21,5 @@ public class FinanceApprovalRequestMessageListenerImpl implements FinanceApprova
     public void approveConfirmation(FinanceApprovalRequest financeApprovalRequest) {
         ConfirmationApprovalEvent orderApprovalEvent =
                 financeApprovalRequestHelper.persistConfirmationApproval(financeApprovalRequest);
-        orderApprovalEvent.fire();
     }
 }

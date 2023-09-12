@@ -26,5 +26,13 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>student-dataaccess</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>student-dataaccess</artifactId>
+        </dependency>
     </dependencies>
 </project>
