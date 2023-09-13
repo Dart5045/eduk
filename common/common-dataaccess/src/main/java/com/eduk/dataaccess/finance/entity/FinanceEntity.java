@@ -16,16 +16,16 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @IdClass(FinanceEntityId.class)
-@Table(name = "order_restaurant_m_view", schema = "restaurant")
+@Table(name = "confirmation_finance_m_view", schema = "finance")
 @Entity
 public class FinanceEntity {
 
     @Id
-    private UUID restaurantId;
+    private UUID financeId;
     @Id
     private UUID productId;
-    private String restaurantName;
-    private Boolean restaurantActive;
+    private String financeName;
+    private Boolean financeActive;
     private String productName;
     private BigDecimal productPrice;
     private Boolean productAvailable;
@@ -35,11 +35,11 @@ public class FinanceEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FinanceEntity that = (FinanceEntity) o;
-        return restaurantId.equals(that.restaurantId) && productId.equals(that.productId);
+        return financeId.equals(that.financeId) && productId.equals(that.productId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(restaurantId, productId);
+        return Objects.hash(financeId, productId);
     }
 }

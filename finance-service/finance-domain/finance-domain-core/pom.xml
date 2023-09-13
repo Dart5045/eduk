@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>finance-core-domain</artifactId>
+    <artifactId>finance-domain-core</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.eduk</groupId>

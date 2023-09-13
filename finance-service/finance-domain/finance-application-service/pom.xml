@@ -12,7 +12,15 @@
     <dependencies>
         <dependency>
             <groupId>com.eduk</groupId>
-            <artifactId>finance-core-domain</artifactId>
+            <artifactId>outbox</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>saga</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
+            <artifactId>finance-domain-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.eduk</groupId>
@@ -25,6 +33,10 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
     </dependencies>
 </project>

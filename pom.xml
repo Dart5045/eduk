@@ -93,12 +93,17 @@
       </dependency>
       <dependency>
         <groupId>com.eduk</groupId>
-        <artifactId>finance-messagin</artifactId>
+        <artifactId>finance-messaging</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.eduk</groupId>
         <artifactId>finance-dataaccess</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.eduk</groupId>
+        <artifactId>finance-domain-core</artifactId>
         <version>${project.version}</version>
       </dependency>
 

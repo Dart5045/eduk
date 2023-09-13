@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class FinanceEntityId implements Serializable {
 
-    private UUID restaurantId;
+    private UUID financeId;
     private UUID productId;
 
     @Override
@@ -21,11 +21,11 @@ public class FinanceEntityId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FinanceEntityId that = (FinanceEntityId) o;
-        return restaurantId.equals(that.restaurantId) && productId.equals(that.productId);
+        return financeId.equals(that.financeId) && productId.equals(that.productId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(restaurantId, productId);
+        return Objects.hash(financeId, productId);
     }
 }

@@ -18,34 +18,34 @@ import java.util.List;
 public class FinanceApprovalRequestKafkaListener implements KafkaConsumer<FinanceApprovalRequestAvroModel> {
 
     private final FinanceApprovalRequestMessageListener financeApprovalRequestMessageListener;
-    private final FinanceMessagingDataMapper restaurantMessagingDataMapper;
+    private final FinanceMessagingDataMapper financeMessagingDataMapper;
 
     public FinanceApprovalRequestKafkaListener(FinanceApprovalRequestMessageListener
-                                                          restaurantApprovalRequestMessageListener,
+                                                          financeApprovalRequestMessageListener,
                                                FinanceMessagingDataMapper
-                                                          restaurantMessagingDataMapper) {
-        this.financeApprovalRequestMessageListener = restaurantApprovalRequestMessageListener;
-        this.restaurantMessagingDataMapper = restaurantMessagingDataMapper;
+                                                          financeMessagingDataMapper) {
+        this.financeApprovalRequestMessageListener = financeApprovalRequestMessageListener;
+        this.financeMessagingDataMapper = financeMessagingDataMapper;
     }
 
     @Override
-    @KafkaListener(id = "${kafka-consumer-config.restaurant-approval-consumer-group-id}",
-            topics = "${restaurant-service.restaurant-approval-request-topic-name}")
+    @KafkaListener(id = "${kafka-consumer-config.finance-approval-consumer-group-id}",
+            topics = "${finance-service.finance-approval-request-topic-name}")
     public void receive(@Payload List<FinanceApprovalRequestAvroModel> messages,
                         @Header(KafkaHeaders.RECEIVED_KEY) List<String> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
         log.info("{} number of confirmations approval requests received with keys {}, partitions {} and offsets {}" +
-                        ", sending for restaurant approval",
+                        ", sending for finance approval",
                 messages.size(),
                 keys.toString(),
                 partitions.toString(),
                 offsets.toString());
 
-        messages.forEach(restaurantApprovalRequestAvroModel -> {
-            log.info("Processing confirmation approval for confirmation id: {}", restaurantApprovalRequestAvroModel.getConfirmationId());
-            financeApprovalRequestMessageListener.approveConfirmation(restaurantMessagingDataMapper.
-                    restaurantApprovalRequestAvroModelToFinanceApproval(restaurantApprovalRequestAvroModel));
+        messages.forEach(financeApprovalRequestAvroModel -> {
+            log.info("Processing confirmation approval for confirmation id: {}", financeApprovalRequestAvroModel.getConfirmationId());
+            financeApprovalRequestMessageListener.approveConfirmation(financeMessagingDataMapper.
+                    financeApprovalRequestAvroModelToFinanceApproval(financeApprovalRequestAvroModel));
         });
     }
 

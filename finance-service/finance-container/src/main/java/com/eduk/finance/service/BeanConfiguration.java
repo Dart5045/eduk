@@ -1,5 +1,7 @@
-package com.eduk.finance.service.domain;
+package com.eduk.finance.service;
 
+import com.eduk.finance.service.domain.FinanceDomainService;
+import com.eduk.finance.service.domain.FinanceDomainServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,5 +12,4 @@ public class BeanConfiguration {
     public FinanceDomainService financeDomainService() {
         return new FinanceDomainServiceImpl();
     }
-
 }

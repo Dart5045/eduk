@@ -4,5 +4,5 @@ public final class SagaConstants {
 
     private SagaConstants() {
     }
-    public static final String CONFIRMATION_SAGA_NAME = "ConfirmaitonProcessingSaga";
+    public static final String CONFIRMATION_SAGA_NAME = "ConfirmationProcessingSaga";
 }

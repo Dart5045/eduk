@@ -43,24 +43,24 @@ public class FinanceMessagingDataMapper {
     }
 
     public FinanceApprovalRequest
-    restaurantApprovalRequestAvroModelToFinanceApproval(FinanceApprovalRequestAvroModel
-                                                                   restaurantApprovalRequestAvroModel) {
+    financeApprovalRequestAvroModelToFinanceApproval(FinanceApprovalRequestAvroModel
+                                                                   financeApprovalRequestAvroModel) {
         return FinanceApprovalRequest.builder()
-                .id(restaurantApprovalRequestAvroModel.getId().toString())
-                .sagaId(restaurantApprovalRequestAvroModel.getSagaId().toString())
-                .financeId(restaurantApprovalRequestAvroModel.getFinanceId().toString())
-                .confirmationId(restaurantApprovalRequestAvroModel.getConfirmationId().toString())
-                /*.financeConfirmationStatus(FinanceConfirmationStatus.valueOf(restaurantApprovalRequestAvroModel
+                .id(financeApprovalRequestAvroModel.getId().toString())
+                .sagaId(financeApprovalRequestAvroModel.getSagaId().toString())
+                .financeId(financeApprovalRequestAvroModel.getFinanceId().toString())
+                .confirmationId(financeApprovalRequestAvroModel.getConfirmationId().toString())
+                /*.financeConfirmationStatus(FinanceConfirmationStatus.valueOf(financeApprovalRequestAvroModel
                         .getFinanceConfirmationStatus().name()))*/
-                .products(restaurantApprovalRequestAvroModel.getProducts()
+                .products(financeApprovalRequestAvroModel.getProducts()
                         .stream().map(avroModel ->
                                 Product.builder()
                                         .productId(new ProductId(UUID.fromString(avroModel.getId())))
                                         .quantity(avroModel.getQuantity())
                                         .build())
                         .collect(Collectors.toList()))
-                .price(restaurantApprovalRequestAvroModel.getPrice())
-                .createdAt(restaurantApprovalRequestAvroModel.getCreatedAt())
+                .price(financeApprovalRequestAvroModel.getPrice())
+                .createdAt(financeApprovalRequestAvroModel.getCreatedAt())
                 .build();
     }
 }

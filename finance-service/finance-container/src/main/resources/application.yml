@@ -6,8 +6,8 @@ logging:
     com.eduk: DEBUG
 
 finance-service:
-  finance-approval-request-topic-name: finance-approval-request
-  finance-approval-response-topic-name: finance-approval-response
+  finance-approval-request-topic-name: debezium.order.finance_approval_outbox
+  finance-approval-response-topic-name: debezium.finance.order_outbox
 
 spring:
   jpa:
@@ -20,12 +20,13 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=finance&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
     username: postgres
-    password: password
+    password: admin
     driver-class-name: org.postgresql.Driver
     platform: postgres
-    schema: classpath:init-schema.sql
-    data: classpath:init-data.sql
-    initialization-mode: always
+  sql:
+    init:
+      mode: ALWAYS
+      schema-locations: classpath:init-schema.sql,classpath:init-data.sql
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092

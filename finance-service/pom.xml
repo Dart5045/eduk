@@ -8,13 +8,13 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>finance</artifactId>
+    <artifactId>finance-service</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>finance-application</module>
-        <module>finance-container</module>
         <module>finance-dataaccess</module>
         <module>finance-domain</module>
         <module>finance-messaging</module>
+        <module>finance-container</module>
     </modules>
 </project>
