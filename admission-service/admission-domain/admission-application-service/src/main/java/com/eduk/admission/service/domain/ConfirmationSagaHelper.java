@@ -1,8 +1,11 @@
 package com.eduk.admission.service.domain;
 
+import com.eduk.admission.service.domain.entity.Confirmation;
 import com.eduk.admission.service.domain.exception.ConfirmationNotFoundException;
 import com.eduk.admission.service.domain.ports.output.repository.ConfirmationRepository;
 import com.eduk.domain.valueobject.ConfirmationId;
+import com.eduk.domain.valueobject.ConfirmationStatus;
+import com.eduk.saga.SagaStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -30,5 +33,19 @@ public class ConfirmationSagaHelper {
 
     void saveConfirmation(Confirmation confirmation) {
         confirmationRepository.save(confirmation);
+    }
+    SagaStatus confirmationStatusToSagaStatus(ConfirmationStatus confirmationStatus) {
+        switch (confirmationStatus) {
+            case PAID:
+                return SagaStatus.PROCESSING;
+            case APPROVED:
+                return SagaStatus.SUCCEEDED;
+            case CANCELLING:
+                return SagaStatus.COMPENSATING;
+            case CANCELLED:
+                return SagaStatus.COMPENSATED;
+            default:
+                return SagaStatus.STARTED;
+        }
     }
 }

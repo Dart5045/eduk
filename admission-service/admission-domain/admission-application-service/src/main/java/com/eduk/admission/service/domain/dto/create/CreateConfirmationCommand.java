@@ -18,6 +18,9 @@ public class CreateConfirmationCommand {
     private  UUID applicationId;
     @NotNull
     private  UUID termRequested;
+
+    @NotNull
+    private  UUID financeId;
     @NotNull
     private  BigDecimal price;
 }

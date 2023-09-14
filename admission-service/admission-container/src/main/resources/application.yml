@@ -9,11 +9,13 @@ lombok:
     addConstructorProperties: true
 
 student-service:
-  payment-request-topic-name: payment-request
-  payment-response-topic-name: payment-response
-  finance-approval-request-topic-name: finance-request
-  finance-approval-response-topic-name: finance-response
-  student-topic-name: student
+  payment-request-topic-name: debezium.order.payment_outbox
+  payment-response-topic-name: debezium.payment.order_outbox
+  finance-approval-request-topic-name: debezium.order.finance_approval_outbox
+  finance-approval-response-topic-name: debezium.finance.order_outbox
+  student-topic-name: customer
+  outbox-scheduler-fixed-rate: 10000
+  outbox-scheduler-initial-delay: 10000
 
 
 spring:
@@ -35,8 +37,6 @@ spring:
       platform: postgres
       schema-locations:
         - classpath:init-schema.sql
-      data-locations:
-        - classpath:init-data.sql
       mode: ALWAYS
 
 kafka-config:

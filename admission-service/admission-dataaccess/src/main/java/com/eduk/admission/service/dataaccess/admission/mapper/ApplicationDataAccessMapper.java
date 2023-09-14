@@ -1,7 +1,7 @@
 package com.eduk.admission.service.dataaccess.admission.mapper;
 
 import com.eduk.admission.service.dataaccess.admission.entity.ApplicationEntity;
-import com.eduk.admission.service.domain.Application;
+import com.eduk.admission.service.domain.entity.Application;
 import com.eduk.domain.valueobject.ApplicationId;
 import org.springframework.stereotype.Component;
 

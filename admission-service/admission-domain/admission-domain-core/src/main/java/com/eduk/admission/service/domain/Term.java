@@ -1,5 +1,6 @@
 package com.eduk.admission.service.domain;
 
+import com.eduk.admission.service.domain.entity.Application;
 import com.eduk.domain.entity.AggregateRoot;
 import com.eduk.admission.service.domain.valueobject.TermId;
 

@@ -2,7 +2,7 @@ package com.eduk.admission.service.messaging.mapper;
 
 import com.eduk.admission.service.domain.dto.message.FinanceApprovalResponse;
 import com.eduk.admission.service.domain.dto.message.StudentModel;
-import com.eduk.admission.service.domain.Confirmation;
+import com.eduk.admission.service.domain.entity.Confirmation;
 import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
 import com.eduk.admission.service.domain.event.ConfirmationCreatedEvent;
 import com.eduk.admission.service.domain.event.ConfirmationPaidEvent;

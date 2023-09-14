@@ -14,18 +14,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConfirmationRejectedKafkaMessagePublisher implements ConfirmationRejectedMessagePublisher {
 
-    private final FinanceMessagingDataMapper restaurantMessagingDataMapper;
+    private final FinanceMessagingDataMapper financeMessagingDataMapper;
     private final KafkaProducer<String, FinanceApprovalResponseAvroModel> kafkaProducer;
-    private final FinanceServiceConfigData restaurantServiceConfigData;
+    private final FinanceServiceConfigData financeServiceConfigData;
     private final KafkaMessageHelper kafkaMessageHelper;
 
-    public ConfirmationRejectedKafkaMessagePublisher(FinanceMessagingDataMapper restaurantMessagingDataMapper,
+    public ConfirmationRejectedKafkaMessagePublisher(FinanceMessagingDataMapper financeMessagingDataMapper,
                                                      KafkaProducer<String, FinanceApprovalResponseAvroModel> kafkaProducer,
-                                                     FinanceServiceConfigData restaurantServiceConfigData,
+                                                     FinanceServiceConfigData financeServiceConfigData,
                                                      KafkaMessageHelper kafkaMessageHelper) {
-        this.restaurantMessagingDataMapper = restaurantMessagingDataMapper;
+        this.financeMessagingDataMapper = financeMessagingDataMapper;
         this.kafkaProducer = kafkaProducer;
-        this.restaurantServiceConfigData = restaurantServiceConfigData;
+        this.financeServiceConfigData = financeServiceConfigData;
         this.kafkaMessageHelper = kafkaMessageHelper;
     }
 
@@ -36,16 +36,16 @@ public class ConfirmationRejectedKafkaMessagePublisher implements ConfirmationRe
         log.info("Received ConfirmationRejectedEvent for confirmation id: {}", confirmationId);
 
         try {
-            FinanceApprovalResponseAvroModel restaurantApprovalResponseAvroModel =
-                    restaurantMessagingDataMapper
+            FinanceApprovalResponseAvroModel financeApprovalResponseAvroModel =
+                    financeMessagingDataMapper
                             .confirmationRejectedEventToFinanceApprovalResponseAvroModel(confirmationRejectedEvent);
 
-            kafkaProducer.send(restaurantServiceConfigData.getFinanceApprovalResponseTopicName(),
+            kafkaProducer.send(financeServiceConfigData.getFinanceApprovalResponseTopicName(),
                     confirmationId,
-                    restaurantApprovalResponseAvroModel,
-                    kafkaMessageHelper.getKafkaCallback(restaurantServiceConfigData
+                    financeApprovalResponseAvroModel,
+                    kafkaMessageHelper.getKafkaCallback(financeServiceConfigData
                                     .getFinanceApprovalResponseTopicName(),
-                            restaurantApprovalResponseAvroModel,
+                            financeApprovalResponseAvroModel,
                             confirmationId,
                             "FinanceApprovalResponseAvroModel"));
 

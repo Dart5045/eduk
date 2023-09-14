@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class CreateConfirmationKafkaMessagePublisher implements ConfirmationCreatedPaymentRequestMessagePublisher {
+public class     CreateConfirmationKafkaMessagePublisher implements ConfirmationCreatedPaymentRequestMessagePublisher {
     private final ConfirmationMessagingDataMapper confirmationMessagingDataMapper;
     private final ConfirmationServiceConfigData confirmationServiceConfigData;
     private final KafkaProducer<String, PaymentRequestAvroModel> kafkaProducer;

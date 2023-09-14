@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static com.eduk.admission.service.domain.Confirmation.FAILURE_MESSAGE_DELIMITER;
+import static com.eduk.admission.service.domain.entity.Confirmation.FAILURE_MESSAGE_DELIMITER;
 
 
 @Slf4j

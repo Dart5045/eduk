@@ -11,5 +11,5 @@ import java.util.UUID;
 
 @Repository
 public interface FinanceJpaRepository extends JpaRepository<FinanceEntity, FinanceEntityId> {
-    Optional<List<FinanceEntity>> findByRestaurantIdAndProductIdIn(UUID restaurantId, List<UUID> productIds);
+    Optional<List<FinanceEntity>> findByFinanceIdAndProductIdIn(UUID restaurantId, List<UUID> productIds);
 }

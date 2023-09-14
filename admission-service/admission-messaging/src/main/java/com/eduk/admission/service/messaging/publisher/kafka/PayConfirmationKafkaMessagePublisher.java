@@ -2,8 +2,8 @@ package com.eduk.admission.service.messaging.publisher.kafka;
 
 import com.eduk.admission.service.domain.config.ConfirmationServiceConfigData;
 import com.eduk.admission.service.domain.event.ConfirmationPaidEvent;
-import com.eduk.admission.service.domain.ports.output.message.publisher.financeapproval.ConfirmationPaidFinanceRequestMessagePublisher;
 import com.eduk.admission.service.messaging.mapper.ConfirmationMessagingDataMapper;
+import com.eduk.domain.event.publisher.DomainEventPublisher;
 import com.eduk.kafka.confirmation.avro.model.FinanceApprovalRequestAvroModel;
 import com.eduk.kafka.producer.KafkaMessageHelper;
 import com.eduk.kafka.producer.service.KafkaProducer;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class PayConfirmationKafkaMessagePublisher implements ConfirmationPaidFinanceRequestMessagePublisher {
+public class PayConfirmationKafkaMessagePublisher implements DomainEventPublisher<ConfirmationPaidEvent> {
 
     private final ConfirmationMessagingDataMapper confirmationMessagingDataMapper;
     private final ConfirmationServiceConfigData confirmationServiceConfigData;

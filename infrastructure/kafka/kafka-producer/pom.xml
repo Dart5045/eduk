@@ -12,6 +12,10 @@
     <dependencies>
         <dependency>
             <groupId>com.eduk</groupId>
+            <artifactId>outbox</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.eduk</groupId>
             <artifactId>kafka-model</artifactId>
         </dependency>
         <dependency>

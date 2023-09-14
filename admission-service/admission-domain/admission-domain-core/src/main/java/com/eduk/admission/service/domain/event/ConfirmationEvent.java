@@ -1,6 +1,6 @@
 package com.eduk.admission.service.domain.event;
 
-import com.eduk.admission.service.domain.Confirmation;
+import com.eduk.admission.service.domain.entity.Confirmation;
 import com.eduk.domain.event.DomainEvent;
 
 import java.time.ZonedDateTime;

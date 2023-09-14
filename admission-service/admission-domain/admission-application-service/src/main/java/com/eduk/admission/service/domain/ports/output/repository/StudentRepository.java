@@ -1,6 +1,6 @@
 package com.eduk.admission.service.domain.ports.output.repository;
 
-import com.eduk.admission.service.domain.Student;
+import com.eduk.admission.service.domain.entity.Student;
 
 import java.util.Optional;
 import java.util.UUID;

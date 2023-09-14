@@ -2,6 +2,7 @@ package com.eduk.admission.service.domain;
 
 
 import com.eduk.admission.service.domain.dto.message.PaymentResponse;
+import com.eduk.admission.service.domain.entity.Confirmation;
 import com.eduk.admission.service.domain.ports.input.message.listener.payment.PaymentResponseMessageListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

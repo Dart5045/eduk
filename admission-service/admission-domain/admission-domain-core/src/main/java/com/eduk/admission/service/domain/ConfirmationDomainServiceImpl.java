@@ -1,10 +1,12 @@
 package com.eduk.admission.service.domain;
 
+import com.eduk.admission.service.domain.entity.Confirmation;
+import com.eduk.admission.service.domain.entity.Finance;
 import com.eduk.admission.service.domain.event.ConfirmationCreatedEvent;
 import com.eduk.admission.service.domain.event.ConfirmationPaidEvent;
 import com.eduk.domain.event.publisher.DomainEventPublisher;
 import com.eduk.admission.service.domain.exception.ConfirmationDomainException;
-import com.eduk.admission.service.domain.valueobject.ConfirmationStatus;
+import com.eduk.domain.valueobject.ConfirmationStatus;
 import com.eduk.domain.valueobject.Money;
 import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
 import lombok.extern.slf4j.Slf4j;
@@ -20,25 +22,22 @@ import static com.eduk.domain.DomainConstants.UTC;
 public class ConfirmationDomainServiceImpl implements ConfirmationDomainService {
 
     @Override
-    public ConfirmationCreatedEvent validateAndInitiateConfirmation(Confirmation confirmation,
-                                                                    DomainEventPublisher<ConfirmationCreatedEvent>
-                                                              orderCreatedEventDomainEventPublisher) {
+    public ConfirmationCreatedEvent validateAndInitiateConfirmation(Confirmation confirmation, Finance finance) {
         //validateFinance(finance);
         //setConfirmationProductInformation(order, restaurant);
         confirmation.validateConfirmation();
         confirmation.initializeConfirmation();
         log.info("Order with id: {} is initiated", confirmation.getId().getValue());
         return new ConfirmationCreatedEvent(confirmation
-                , ZonedDateTime.now(ZoneId.of(UTC))
-                , orderCreatedEventDomainEventPublisher);
+                , ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
 
     @Override
-    public ConfirmationPaidEvent payConfirmation(Confirmation confirmation, DomainEventPublisher<ConfirmationPaidEvent> confirmationPaidEventDomainEventPublisher) {
+    public ConfirmationPaidEvent payConfirmation(Confirmation confirmation) {
         confirmation.payConfirmation();
         log.info("Application Payment fee with id : {} is paid",confirmation.getId());
-        return new ConfirmationPaidEvent(confirmation, ZonedDateTime.now(ZoneId.of(UTC)), confirmationPaidEventDomainEventPublisher);
+        return new ConfirmationPaidEvent(confirmation, ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
     private void updateConfirmationPrice(Confirmation confirmation) {
@@ -58,11 +57,10 @@ public class ConfirmationDomainServiceImpl implements ConfirmationDomainService 
 
 
     @Override
-    public ConfirmationCancelledEvent cancelConfirmationPayment(Confirmation confirmation, List<String> failureMessages, DomainEventPublisher<ConfirmationCancelledEvent> confirmationCancelledEventDomainEventPublisher) {
+    public ConfirmationCancelledEvent cancelConfirmationPayment(Confirmation confirmation, List<String> failureMessages) {
             confirmation.initCancellingConfirmation(failureMessages);
             log.info("Order payment is cancelling for order id: {}", confirmation.getId().getValue());
-            return new ConfirmationCancelledEvent(confirmation, ZonedDateTime.now(ZoneId.of(UTC)),
-                    confirmationCancelledEventDomainEventPublisher);
+            return new ConfirmationCancelledEvent(confirmation, ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
 

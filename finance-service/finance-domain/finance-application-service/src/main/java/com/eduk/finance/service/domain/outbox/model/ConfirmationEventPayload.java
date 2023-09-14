@@ -17,7 +17,7 @@ public class ConfirmationEventPayload {
     private String confirmationId;
 
     @JsonProperty
-    private String restaurantId;
+    private String financeId;
 
     @JsonProperty
     private ZonedDateTime createdAt;

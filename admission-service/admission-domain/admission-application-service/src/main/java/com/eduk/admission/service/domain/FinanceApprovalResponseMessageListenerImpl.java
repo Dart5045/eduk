@@ -1,6 +1,7 @@
 package com.eduk.admission.service.domain;
 
 import com.eduk.admission.service.domain.dto.message.FinanceApprovalResponse;
+import com.eduk.admission.service.domain.entity.Confirmation;
 import com.eduk.admission.service.domain.ports.input.message.listener.financeapproval.FinanceApprovalResponseMessageListener;
 import com.eduk.admission.service.domain.event.ConfirmationCancelledEvent;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +27,8 @@ public class FinanceApprovalResponseMessageListenerImpl implements FinanceApprov
 
     @Override
     public void confirmationRejected(FinanceApprovalResponse restaurantApprovalResponse) {
-          ConfirmationCancelledEvent domainEvent = confirmationApprovalSaga.rollback(restaurantApprovalResponse);
-          log.info("Publishing confirmation cancelled event for confirmation id: {} with failure messages: {}",
+          confirmationApprovalSaga.rollback(restaurantApprovalResponse);
+          log.info("Confirmation approval Saga rollback operation is completed for confirmation id: {} with failure messages: {}",
                   restaurantApprovalResponse.getConfirmationId(),
                   String.join(Confirmation.FAILURE_MESSAGE_DELIMITER, restaurantApprovalResponse.getFailureMessages()));
     }

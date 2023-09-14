@@ -2,7 +2,7 @@ package com.eduk.admission.service.dataaccess.admission.adapter;
 
 import com.eduk.admission.service.dataaccess.admission.mapper.ApplicationDataAccessMapper;
 import com.eduk.admission.service.dataaccess.admission.repository.ApplicationJpaRepository;
-import com.eduk.admission.service.domain.Application;
+import com.eduk.admission.service.domain.entity.Application;
 import com.eduk.admission.service.domain.ports.output.repository.ApplicationRepository;
 import org.springframework.stereotype.Component;
 

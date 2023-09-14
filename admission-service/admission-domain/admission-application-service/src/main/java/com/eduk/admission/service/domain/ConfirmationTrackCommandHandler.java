@@ -1,5 +1,6 @@
 package com.eduk.admission.service.domain;
 
+import com.eduk.admission.service.domain.entity.Confirmation;
 import com.eduk.admission.service.domain.ports.output.repository.ConfirmationRepository;
 import com.eduk.admission.service.domain.exception.ConfirmationNotFoundException;
 import com.eduk.admission.service.domain.valueobject.TrackingId;

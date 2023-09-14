@@ -1,5 +1,6 @@
 package com.eduk.admission.service.domain;
 
+import com.eduk.admission.service.domain.entity.Student;
 import com.eduk.admission.service.domain.ports.input.message.listener.student.StudentMessageListener;
 import com.eduk.admission.service.domain.ports.output.repository.StudentRepository;
 import com.eduk.admission.service.domain.exception.ConfirmationDomainException;

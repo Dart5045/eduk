@@ -3,7 +3,7 @@ package com.eduk.admission.service.dataaccess.admission.adapter;
 import com.eduk.admission.service.dataaccess.admission.entity.ConfirmationEntity;
 import com.eduk.admission.service.dataaccess.admission.mapper.ConfirmationDataAccessMapper;
 import com.eduk.admission.service.dataaccess.admission.repository.ConfirmationJpaRepository;
-import com.eduk.admission.service.domain.Confirmation;
+import com.eduk.admission.service.domain.entity.Confirmation;
 import com.eduk.admission.service.domain.valueobject.TrackingId;
 import com.eduk.domain.valueobject.ConfirmationId;
 import com.eduk.admission.service.domain.ports.output.repository.ConfirmationRepository;

@@ -39,7 +39,7 @@ public class PaymentRequestHelper {
     private final PaymentCancelledMessagePublisher paymentCancelledEventDomainEventPublisher;
     private final PaymentFailedMessagePublisher paymentFailedEventDomainEventPublisher;
 
-    //private final OrderOutboxHelper orderOutboxHelper;
+    //private final ConfirmationOutboxHelper confirmationOutboxHelper;
     //private final PaymentResponseMessagePublisher paymentResponseMessagePublisher;
 
     public PaymentRequestHelper(PaymentDomainService paymentDomainService,
@@ -57,7 +57,7 @@ public class PaymentRequestHelper {
         this.creditHistoryRepository = creditHistoryRepository;
         this.paymentCompletedEventDomainEventPublisher = paymentCompletedEventDomainEventPublisher;
         this.paymentCancelledEventDomainEventPublisher = paymentCancelledEventDomainEventPublisher;
-        //this.orderOutboxHelper = orderOutboxHelper;
+        //this.confirmationOutboxHelper = confirmationOutboxHelper;
         //this.paymentResponseMessagePublisher = paymentResponseMessagePublisher;
         this.paymentFailedEventDomainEventPublisher = paymentFailedEventDomainEventPublisher;
     }
@@ -83,7 +83,7 @@ public class PaymentRequestHelper {
         persistDbObjects(payment, creditEntry, creditHistories, failureMessages);
         return paymentEvent;
 
-        /*orderOutboxHelper.saveOrderOutboxMessage(paymentDataMapper.paymentEventToOrderEventPayload(paymentEvent),
+        /*confirmationOutboxHelper.saveConfirmationOutboxMessage(paymentDataMapper.paymentEventToConfirmationEventPayload(paymentEvent),
                 paymentEvent.getPayment().getPaymentStatus(),
                 OutboxStatus.STARTED,
                 UUID.fromString(paymentRequest.getSagaId()));*/
@@ -91,12 +91,12 @@ public class PaymentRequestHelper {
 
     @Transactional
     public PaymentEvent persistCancelPayment(PaymentRequest paymentRequest) {
-        log.info("Received payment rollback event for order id: {}", paymentRequest.getConfirmationId());
+        log.info("Received payment rollback event for confirmation id: {}", paymentRequest.getConfirmationId());
         Optional<Payment> paymentResponse = paymentRepository
                 .findByConfirmationId(UUID.fromString(paymentRequest.getConfirmationId()));
         if (paymentResponse.isEmpty()) {
-            log.error("Payment with order id: {} could not be found!", paymentRequest.getConfirmationId());
-            throw new PaymentApplicationServiceException("Payment with order id: " +
+            log.error("Payment with confirmation id: {} could not be found!", paymentRequest.getConfirmationId());
+            throw new PaymentApplicationServiceException("Payment with confirmation id: " +
                     paymentRequest.getConfirmationId() + " could not be found!");
         }
         Payment payment = paymentResponse.get();
@@ -144,12 +144,12 @@ public class PaymentRequestHelper {
 
     private boolean publishIfOutboxMessageProcessedForPayment(PaymentRequest paymentRequest,
                                                               PaymentStatus paymentStatus) {
-        Optional<OrderOutboxMessage> orderOutboxMessage =
-                orderOutboxHelper.getCompletedOrderOutboxMessageBySagaIdAndPaymentStatus(
+        Optional<ConfirmationOutboxMessage> confirmationOutboxMessage =
+                confirmationOutboxHelper.getCompletedConfirmationOutboxMessageBySagaIdAndPaymentStatus(
                         UUID.fromString(paymentRequest.getSagaId()),
                         paymentStatus);
-        if (orderOutboxMessage.isPresent()) {
-            paymentResponseMessagePublisher.publish(orderOutboxMessage.get(), orderOutboxHelper::updateOutboxMessage);
+        if (confirmationOutboxMessage.isPresent()) {
+            paymentResponseMessagePublisher.publish(confirmationOutboxMessage.get(), confirmationOutboxHelper::updateOutboxMessage);
             return true;
         }
         return false;
