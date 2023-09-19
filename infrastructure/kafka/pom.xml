@@ -28,12 +28,12 @@
             <dependency>
                 <groupId>org.springframework.kafka</groupId>
                 <artifactId>spring-kafka</artifactId>
-                <version>${spring-kafka-version}</version>
+                <version>${spring-kafka.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.confluent</groupId>
                 <artifactId>kafka-avro-serializer</artifactId>
-                <version>${kafka-avro-seralizer-version}</version>
+                <version>${kafka-avro-serializer.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.slf4j</groupId>

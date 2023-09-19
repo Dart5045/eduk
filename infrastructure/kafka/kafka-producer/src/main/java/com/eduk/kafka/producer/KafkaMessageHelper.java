@@ -34,13 +34,13 @@ public class KafkaMessageHelper {
     public <T, U> BiConsumer<SendResult<String, T>, Throwable>
     getKafkaCallback(String responseTopicName, T avroModel, U outboxMessage,
                      BiConsumer<U, OutboxStatus> outboxCallback,
-                     String orderId, String avroModelName) {
+                     String confirmationId, String avroModelName) {
         return (result, ex) -> {
             if (ex == null) {
                 RecordMetadata metadata = result.getRecordMetadata();
-                log.info("Received successful response from Kafka for order id: {}" +
+                log.info("Received successful response from Kafka for confirmation id: {}" +
                                 " Topic: {} Partition: {} Offset: {} Timestamp: {}",
-                        orderId,
+                        confirmationId,
                         metadata.topic(),
                         metadata.partition(),
                         metadata.offset(),

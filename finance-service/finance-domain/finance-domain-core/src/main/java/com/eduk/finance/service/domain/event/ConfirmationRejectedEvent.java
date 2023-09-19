@@ -8,14 +8,13 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 public class ConfirmationRejectedEvent extends ConfirmationApprovalEvent {
-    private final DomainEventPublisher<ConfirmationRejectedEvent> confirmationRejectedEventDomainEventPublisher;
 
-    public ConfirmationRejectedEvent(ConfirmationApproval confirmationApproval, FinanceId financeId,
-                                     List<String> failureMessages,
-                                     ZonedDateTime createdAt,
-                                     DomainEventPublisher<ConfirmationRejectedEvent> confirmationRejectedEventDomainEventPublisher) {
+
+    public ConfirmationRejectedEvent(ConfirmationApproval confirmationApproval,
+                              FinanceId financeId,
+                              List<String> failureMessages,
+                              ZonedDateTime createdAt) {
         super(confirmationApproval, financeId, failureMessages, createdAt);
-        this.confirmationRejectedEventDomainEventPublisher = confirmationRejectedEventDomainEventPublisher;
     }
 
 }

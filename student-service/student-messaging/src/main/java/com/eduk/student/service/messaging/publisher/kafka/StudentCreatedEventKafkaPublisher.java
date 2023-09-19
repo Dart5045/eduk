@@ -1,7 +1,5 @@
 package com.eduk.student.service.messaging.publisher.kafka;
 
-import com.eduk.kafka.confirmation.avro.model.PaymentRequestAvroModel;
-import com.eduk.kafka.producer.KafkaMessageHelper;
 import com.eduk.kafka.producer.service.KafkaProducer;
 import com.eduk.kafka.student.avro.model.StudentAvroModel;
 import com.eduk.student.service.domain.config.StudentServiceConfigData;
@@ -12,11 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
-import org.springframework.util.concurrent.ListenableFutureCallback;
+
+import java.util.function.BiConsumer;
 
 @Slf4j
 @Component
 public class StudentCreatedEventKafkaPublisher implements StudentMessagePublisher {
+
     private final StudentMessagingDataMapper studentMessagingDataMapper;
 
     private final KafkaProducer<String, StudentAvroModel> kafkaProducer;
@@ -39,9 +39,7 @@ public class StudentCreatedEventKafkaPublisher implements StudentMessagePublishe
             StudentAvroModel studentAvroModel = studentMessagingDataMapper
                     .paymentResponseAvroModelToPaymentResponse(studentCreatedEvent);
 
-            kafkaProducer.send(
-                    studentServiceConfigData.getStudentTopicName(),
-                    studentAvroModel.getId().toString(),
+            kafkaProducer.send(studentServiceConfigData.getStudentTopicName(), studentAvroModel.getId(),
                     studentAvroModel,
                     getCallback(studentServiceConfigData.getStudentTopicName(), studentAvroModel));
 
@@ -53,16 +51,11 @@ public class StudentCreatedEventKafkaPublisher implements StudentMessagePublishe
         }
     }
 
-    private ListenableFutureCallback<SendResult<String, StudentAvroModel>>
+    private BiConsumer<SendResult<String, StudentAvroModel>, Throwable>
     getCallback(String topicName, StudentAvroModel message) {
-        return new ListenableFutureCallback<>() {
-            @Override
-            public void onFailure(Throwable throwable) {
-                log.error("Error while sending message {} to topic {}", message.toString(), topicName, throwable);
-            }
 
-            @Override
-            public void onSuccess(SendResult<String, StudentAvroModel> result) {
+        return (result, ex) -> {
+            if (ex == null) {
                 RecordMetadata metadata = result.getRecordMetadata();
                 log.info("Received new metadata. Topic: {}; Partition {}; Offset {}; Timestamp {}, at time {}",
                         metadata.topic(),
@@ -70,8 +63,10 @@ public class StudentCreatedEventKafkaPublisher implements StudentMessagePublishe
                         metadata.offset(),
                         metadata.timestamp(),
                         System.nanoTime());
+            } else {
+                log.error("Error while sending message {} to topic {}", message.toString(), topicName, ex);
             }
         };
     }
-
 }
+

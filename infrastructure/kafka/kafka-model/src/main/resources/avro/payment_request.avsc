@@ -6,29 +6,25 @@
         {
             "name": "id",
             "type": {
-                "type": "string",
-                "logicalType": "uuid"
+                "type": "string"
             }
         },
         {
             "name": "sagaId",
             "type": {
-                "type": "string",
-                "logicalType": "uuid"
+                "type": "string"
             }
         },
         {
             "name": "applicationId",
             "type": {
-                "type": "string",
-                "logicalType": "uuid"
+                "type": "string"
             }
         },
         {
             "name": "confirmationId",
             "type": {
-                "type": "string",
-                "logicalType": "uuid"
+                "type": "string"
             }
         },
         {

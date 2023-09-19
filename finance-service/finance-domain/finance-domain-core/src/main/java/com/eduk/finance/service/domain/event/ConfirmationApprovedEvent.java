@@ -9,15 +9,11 @@ import java.util.List;
 
 public class ConfirmationApprovedEvent extends ConfirmationApprovalEvent {
 
-    private final DomainEventPublisher<ConfirmationApprovedEvent> confirmationApprovedEventDomainEventPublisher;
-
     public ConfirmationApprovedEvent(ConfirmationApproval confirmationApproval,
-                                     FinanceId financeId,
-                                     List<String> failureMessages,
-                                     ZonedDateTime createdAt,
-                                     DomainEventPublisher<ConfirmationApprovedEvent> confirmationApprovedEventDomainEventPublisher) {
+                              FinanceId financeId,
+                              List<String> failureMessages,
+                              ZonedDateTime createdAt) {
         super(confirmationApproval, financeId, failureMessages, createdAt);
-        this.confirmationApprovedEventDomainEventPublisher = confirmationApprovedEventDomainEventPublisher;
     }
 
  }

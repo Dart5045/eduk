@@ -10,7 +10,7 @@ public class StudentMessagingDataMapper {
     public StudentAvroModel paymentResponseAvroModelToPaymentResponse(StudentCreatedEvent
                                                                                studentCreatedEvent) {
         return StudentAvroModel.newBuilder()
-                .setId(studentCreatedEvent.getStudent().getId().getValue())
+                .setId(studentCreatedEvent.getStudent().getId().getValue().toString())
                 .setEmail(studentCreatedEvent.getStudent().getEmail())
                 .setFirstName(studentCreatedEvent.getStudent().getFirstName())
                 .setLastName(studentCreatedEvent.getStudent().getLastName())

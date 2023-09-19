@@ -5,7 +5,9 @@
  */
 package com.eduk.kafka.confirmation.avro.model;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
@@ -15,12 +17,11 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
   private static final long serialVersionUID = -1418384353510707107L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FinanceApprovalResponseAvroModel\",\"namespace\":\"com.eduk.kafka.confirmation.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"financeId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"confirmationId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"confirmationApprovalStatus\",\"type\":{\"type\":\"enum\",\"name\":\"ConfirmationApprovalStatus\",\"symbols\":[\"APPROVED\",\"REJECTED\"]}},{\"name\":\"failureMessages\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FinanceApprovalResponseAvroModel\",\"namespace\":\"com.eduk.kafka.confirmation.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"financeId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"confirmationId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"confirmationApprovalStatus\",\"type\":{\"type\":\"enum\",\"name\":\"ConfirmationApprovalStatus\",\"symbols\":[\"APPROVED\",\"REJECTED\"]}},{\"name\":\"failureMessages\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
   static {
-    MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.UUIDConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
   }
 
@@ -75,12 +76,12 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
     return DECODER.decode(b);
   }
 
-  private java.util.UUID id;
-  private java.util.UUID sagaId;
-  private java.util.UUID financeId;
-  private java.util.UUID confirmationId;
+  private java.lang.String id;
+  private java.lang.String sagaId;
+  private java.lang.String financeId;
+  private java.lang.String confirmationId;
   private java.time.Instant createdAt;
-  private ConfirmationApprovalStatus confirmationApprovalStatus;
+  private com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus confirmationApprovalStatus;
   private java.util.List<java.lang.String> failureMessages;
 
   /**
@@ -100,7 +101,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * @param confirmationApprovalStatus The new value for confirmationApprovalStatus
    * @param failureMessages The new value for failureMessages
    */
-  public FinanceApprovalResponseAvroModel(java.util.UUID id, java.util.UUID sagaId, java.util.UUID financeId, java.util.UUID confirmationId, java.time.Instant createdAt, ConfirmationApprovalStatus confirmationApprovalStatus, java.util.List<java.lang.String> failureMessages) {
+  public FinanceApprovalResponseAvroModel(java.lang.String id, java.lang.String sagaId, java.lang.String financeId, java.lang.String confirmationId, java.time.Instant createdAt, com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus confirmationApprovalStatus, java.util.List<java.lang.String> failureMessages) {
     this.id = id;
     this.sagaId = sagaId;
     this.financeId = financeId;
@@ -133,10 +134,10 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
 
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
-      new org.apache.avro.Conversions.UUIDConversion(),
-      new org.apache.avro.Conversions.UUIDConversion(),
-      new org.apache.avro.Conversions.UUIDConversion(),
-      new org.apache.avro.Conversions.UUIDConversion(),
+      null,
+      null,
+      null,
+      null,
       new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
       null,
       null,
@@ -153,12 +154,12 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.util.UUID)value$; break;
-    case 1: sagaId = (java.util.UUID)value$; break;
-    case 2: financeId = (java.util.UUID)value$; break;
-    case 3: confirmationId = (java.util.UUID)value$; break;
+    case 0: id = value$ != null ? value$.toString() : null; break;
+    case 1: sagaId = value$ != null ? value$.toString() : null; break;
+    case 2: financeId = value$ != null ? value$.toString() : null; break;
+    case 3: confirmationId = value$ != null ? value$.toString() : null; break;
     case 4: createdAt = (java.time.Instant)value$; break;
-    case 5: confirmationApprovalStatus = (ConfirmationApprovalStatus)value$; break;
+    case 5: confirmationApprovalStatus = (com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus)value$; break;
     case 6: failureMessages = (java.util.List<java.lang.String>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -168,7 +169,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Gets the value of the 'id' field.
    * @return The value of the 'id' field.
    */
-  public java.util.UUID getId() {
+  public java.lang.String getId() {
     return id;
   }
 
@@ -177,7 +178,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Sets the value of the 'id' field.
    * @param value the value to set.
    */
-  public void setId(java.util.UUID value) {
+  public void setId(java.lang.String value) {
     this.id = value;
   }
 
@@ -185,7 +186,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Gets the value of the 'sagaId' field.
    * @return The value of the 'sagaId' field.
    */
-  public java.util.UUID getSagaId() {
+  public java.lang.String getSagaId() {
     return sagaId;
   }
 
@@ -194,7 +195,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Sets the value of the 'sagaId' field.
    * @param value the value to set.
    */
-  public void setSagaId(java.util.UUID value) {
+  public void setSagaId(java.lang.String value) {
     this.sagaId = value;
   }
 
@@ -202,7 +203,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Gets the value of the 'financeId' field.
    * @return The value of the 'financeId' field.
    */
-  public java.util.UUID getFinanceId() {
+  public java.lang.String getFinanceId() {
     return financeId;
   }
 
@@ -211,7 +212,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Sets the value of the 'financeId' field.
    * @param value the value to set.
    */
-  public void setFinanceId(java.util.UUID value) {
+  public void setFinanceId(java.lang.String value) {
     this.financeId = value;
   }
 
@@ -219,7 +220,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Gets the value of the 'confirmationId' field.
    * @return The value of the 'confirmationId' field.
    */
-  public java.util.UUID getConfirmationId() {
+  public java.lang.String getConfirmationId() {
     return confirmationId;
   }
 
@@ -228,7 +229,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Sets the value of the 'confirmationId' field.
    * @param value the value to set.
    */
-  public void setConfirmationId(java.util.UUID value) {
+  public void setConfirmationId(java.lang.String value) {
     this.confirmationId = value;
   }
 
@@ -253,7 +254,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Gets the value of the 'confirmationApprovalStatus' field.
    * @return The value of the 'confirmationApprovalStatus' field.
    */
-  public ConfirmationApprovalStatus getConfirmationApprovalStatus() {
+  public com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus getConfirmationApprovalStatus() {
     return confirmationApprovalStatus;
   }
 
@@ -262,7 +263,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Sets the value of the 'confirmationApprovalStatus' field.
    * @param value the value to set.
    */
-  public void setConfirmationApprovalStatus(ConfirmationApprovalStatus value) {
+  public void setConfirmationApprovalStatus(com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus value) {
     this.confirmationApprovalStatus = value;
   }
 
@@ -287,8 +288,8 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * Creates a new FinanceApprovalResponseAvroModel RecordBuilder.
    * @return A new FinanceApprovalResponseAvroModel RecordBuilder
    */
-  public static FinanceApprovalResponseAvroModel.Builder newBuilder() {
-    return new FinanceApprovalResponseAvroModel.Builder();
+  public static com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder newBuilder() {
+    return new com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder();
   }
 
   /**
@@ -296,11 +297,11 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * @param other The existing builder to copy.
    * @return A new FinanceApprovalResponseAvroModel RecordBuilder
    */
-  public static FinanceApprovalResponseAvroModel.Builder newBuilder(FinanceApprovalResponseAvroModel.Builder other) {
+  public static com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder newBuilder(com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder other) {
     if (other == null) {
-      return new FinanceApprovalResponseAvroModel.Builder();
+      return new com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder();
     } else {
-      return new FinanceApprovalResponseAvroModel.Builder(other);
+      return new com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder(other);
     }
   }
 
@@ -309,11 +310,11 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
    * @param other The existing instance to copy.
    * @return A new FinanceApprovalResponseAvroModel RecordBuilder
    */
-  public static FinanceApprovalResponseAvroModel.Builder newBuilder(FinanceApprovalResponseAvroModel other) {
+  public static com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder newBuilder(com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel other) {
     if (other == null) {
-      return new FinanceApprovalResponseAvroModel.Builder();
+      return new com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder();
     } else {
-      return new FinanceApprovalResponseAvroModel.Builder(other);
+      return new com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder(other);
     }
   }
 
@@ -324,12 +325,12 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<FinanceApprovalResponseAvroModel>
     implements org.apache.avro.data.RecordBuilder<FinanceApprovalResponseAvroModel> {
 
-    private java.util.UUID id;
-    private java.util.UUID sagaId;
-    private java.util.UUID financeId;
-    private java.util.UUID confirmationId;
+    private java.lang.String id;
+    private java.lang.String sagaId;
+    private java.lang.String financeId;
+    private java.lang.String confirmationId;
     private java.time.Instant createdAt;
-    private ConfirmationApprovalStatus confirmationApprovalStatus;
+    private com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus confirmationApprovalStatus;
     private java.util.List<java.lang.String> failureMessages;
 
     /** Creates a new Builder */
@@ -341,7 +342,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(FinanceApprovalResponseAvroModel.Builder other) {
+    private Builder(com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -377,7 +378,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
      * Creates a Builder by copying an existing FinanceApprovalResponseAvroModel instance
      * @param other The existing instance to copy.
      */
-    private Builder(FinanceApprovalResponseAvroModel other) {
+    private Builder(com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -413,7 +414,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Gets the value of the 'id' field.
       * @return The value.
       */
-    public java.util.UUID getId() {
+    public java.lang.String getId() {
       return id;
     }
 
@@ -423,7 +424,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder setId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -443,7 +444,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder clearId() {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -453,7 +454,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Gets the value of the 'sagaId' field.
       * @return The value.
       */
-    public java.util.UUID getSagaId() {
+    public java.lang.String getSagaId() {
       return sagaId;
     }
 
@@ -463,7 +464,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * @param value The value of 'sagaId'.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder setSagaId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder setSagaId(java.lang.String value) {
       validate(fields()[1], value);
       this.sagaId = value;
       fieldSetFlags()[1] = true;
@@ -483,7 +484,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Clears the value of the 'sagaId' field.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder clearSagaId() {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder clearSagaId() {
       sagaId = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -493,7 +494,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Gets the value of the 'financeId' field.
       * @return The value.
       */
-    public java.util.UUID getFinanceId() {
+    public java.lang.String getFinanceId() {
       return financeId;
     }
 
@@ -503,7 +504,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * @param value The value of 'financeId'.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder setFinanceId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder setFinanceId(java.lang.String value) {
       validate(fields()[2], value);
       this.financeId = value;
       fieldSetFlags()[2] = true;
@@ -523,7 +524,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Clears the value of the 'financeId' field.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder clearFinanceId() {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder clearFinanceId() {
       financeId = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -533,7 +534,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Gets the value of the 'confirmationId' field.
       * @return The value.
       */
-    public java.util.UUID getConfirmationId() {
+    public java.lang.String getConfirmationId() {
       return confirmationId;
     }
 
@@ -543,7 +544,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * @param value The value of 'confirmationId'.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder setConfirmationId(java.util.UUID value) {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder setConfirmationId(java.lang.String value) {
       validate(fields()[3], value);
       this.confirmationId = value;
       fieldSetFlags()[3] = true;
@@ -563,7 +564,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Clears the value of the 'confirmationId' field.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder clearConfirmationId() {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder clearConfirmationId() {
       confirmationId = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -583,7 +584,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * @param value The value of 'createdAt'.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder setCreatedAt(java.time.Instant value) {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder setCreatedAt(java.time.Instant value) {
       validate(fields()[4], value);
       this.createdAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
       fieldSetFlags()[4] = true;
@@ -603,7 +604,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Clears the value of the 'createdAt' field.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder clearCreatedAt() {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder clearCreatedAt() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -612,7 +613,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Gets the value of the 'confirmationApprovalStatus' field.
       * @return The value.
       */
-    public ConfirmationApprovalStatus getConfirmationApprovalStatus() {
+    public com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus getConfirmationApprovalStatus() {
       return confirmationApprovalStatus;
     }
 
@@ -622,7 +623,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * @param value The value of 'confirmationApprovalStatus'.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder setConfirmationApprovalStatus(ConfirmationApprovalStatus value) {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder setConfirmationApprovalStatus(com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus value) {
       validate(fields()[5], value);
       this.confirmationApprovalStatus = value;
       fieldSetFlags()[5] = true;
@@ -642,7 +643,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Clears the value of the 'confirmationApprovalStatus' field.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder clearConfirmationApprovalStatus() {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder clearConfirmationApprovalStatus() {
       confirmationApprovalStatus = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -662,7 +663,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * @param value The value of 'failureMessages'.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder setFailureMessages(java.util.List<java.lang.String> value) {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder setFailureMessages(java.util.List<java.lang.String> value) {
       validate(fields()[6], value);
       this.failureMessages = value;
       fieldSetFlags()[6] = true;
@@ -682,7 +683,7 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
       * Clears the value of the 'failureMessages' field.
       * @return This builder.
       */
-    public FinanceApprovalResponseAvroModel.Builder clearFailureMessages() {
+    public com.eduk.kafka.confirmation.avro.model.FinanceApprovalResponseAvroModel.Builder clearFailureMessages() {
       failureMessages = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -693,12 +694,12 @@ public class FinanceApprovalResponseAvroModel extends org.apache.avro.specific.S
     public FinanceApprovalResponseAvroModel build() {
       try {
         FinanceApprovalResponseAvroModel record = new FinanceApprovalResponseAvroModel();
-        record.id = fieldSetFlags()[0] ? this.id : (java.util.UUID) defaultValue(fields()[0]);
-        record.sagaId = fieldSetFlags()[1] ? this.sagaId : (java.util.UUID) defaultValue(fields()[1]);
-        record.financeId = fieldSetFlags()[2] ? this.financeId : (java.util.UUID) defaultValue(fields()[2]);
-        record.confirmationId = fieldSetFlags()[3] ? this.confirmationId : (java.util.UUID) defaultValue(fields()[3]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.sagaId = fieldSetFlags()[1] ? this.sagaId : (java.lang.String) defaultValue(fields()[1]);
+        record.financeId = fieldSetFlags()[2] ? this.financeId : (java.lang.String) defaultValue(fields()[2]);
+        record.confirmationId = fieldSetFlags()[3] ? this.confirmationId : (java.lang.String) defaultValue(fields()[3]);
         record.createdAt = fieldSetFlags()[4] ? this.createdAt : (java.time.Instant) defaultValue(fields()[4]);
-        record.confirmationApprovalStatus = fieldSetFlags()[5] ? this.confirmationApprovalStatus : (ConfirmationApprovalStatus) defaultValue(fields()[5]);
+        record.confirmationApprovalStatus = fieldSetFlags()[5] ? this.confirmationApprovalStatus : (com.eduk.kafka.confirmation.avro.model.ConfirmationApprovalStatus) defaultValue(fields()[5]);
         record.failureMessages = fieldSetFlags()[6] ? this.failureMessages : (java.util.List<java.lang.String>) defaultValue(fields()[6]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {

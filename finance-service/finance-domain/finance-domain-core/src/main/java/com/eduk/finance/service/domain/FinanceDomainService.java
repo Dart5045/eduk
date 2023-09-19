@@ -9,10 +9,5 @@ import com.eduk.domain.event.publisher.DomainEventPublisher;
 import java.util.List;
 
     public interface FinanceDomainService {
-
-    ConfirmationApprovalEvent validateConfirmation(Finance finance,
-                                                   List<String> failureMessages,
-                                                   DomainEventPublisher<ConfirmationApprovedEvent> confirmationApprovedEventDomainEventPublisher,
-                                                   DomainEventPublisher<ConfirmationRejectedEvent> confirmationRejectedEventDomainEventPublisher);
-
+        ConfirmationApprovalEvent validateConfirmation(Finance finance, List<String> failureMessages);
 }

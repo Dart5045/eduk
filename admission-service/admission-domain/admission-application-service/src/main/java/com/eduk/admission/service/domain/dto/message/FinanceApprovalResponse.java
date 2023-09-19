@@ -1,5 +1,6 @@
 package com.eduk.admission.service.domain.dto.message;
 
+import com.eduk.domain.valueobject.ConfirmationApprovalStatus;
 import com.eduk.domain.valueobject.FinanceApprovalStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,11 +15,9 @@ import java.util.List;
 public class FinanceApprovalResponse {
     private String id;
     private String sagaId;
-    private String financeId;
-    private String applicationId;
     private String confirmationId;
-    private String paymentId;
+    private String financeId;
     private Instant createdAt;
-    private FinanceApprovalStatus financeApprovalStatus;
+    private ConfirmationApprovalStatus confirmationApprovalStatus;
     private List<String> failureMessages;
 }

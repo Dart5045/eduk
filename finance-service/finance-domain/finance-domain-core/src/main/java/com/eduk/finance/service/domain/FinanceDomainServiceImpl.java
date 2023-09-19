@@ -18,13 +18,7 @@ import static com.eduk.domain.DomainConstants.UTC;
 public class FinanceDomainServiceImpl implements FinanceDomainService {
 
     @Override
-    public ConfirmationApprovalEvent validateConfirmation
-            (Finance finance
-                    , List<String> failureMessages,
-             DomainEventPublisher<ConfirmationApprovedEvent>
-                     confirmationApprovedEventDomainEventPublisher,
-             DomainEventPublisher<ConfirmationRejectedEvent>
-                     confirmationRejectedEventDomainEventPublisher) {
+    public ConfirmationApprovalEvent validateConfirmation(Finance finance, List<String> failureMessages) {
         finance.validateConfirmation(failureMessages);
         log.info("Validating confirmation with id: {}", finance.getConfirmationDetail().getId().getValue());
 
@@ -34,18 +28,14 @@ public class FinanceDomainServiceImpl implements FinanceDomainService {
             return new ConfirmationApprovedEvent(finance.getConfirmationApproval(),
                     finance.getId(),
                     failureMessages,
-                    ZonedDateTime.now(ZoneId.of(UTC)),
-                    confirmationApprovedEventDomainEventPublisher);
-
-
+                    ZonedDateTime.now(ZoneId.of(UTC)));
         } else {
             log.info("Confirmation is rejected for confirmation id: {}", finance.getConfirmationDetail().getId().getValue());
             finance.constructConfirmationApproval(ConfirmationApprovalStatus.REJECTED);
             return new ConfirmationRejectedEvent(finance.getConfirmationApproval(),
                     finance.getId(),
                     failureMessages,
-                    ZonedDateTime.now(ZoneId.of(UTC)),
-                    confirmationRejectedEventDomainEventPublisher);
+                    ZonedDateTime.now(ZoneId.of(UTC)));
         }
     }
 }
